@@ -11,8 +11,9 @@ class DocumentChuncker:
             strip_headers=False
         )
         self.__child_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=config.CHILD_CHUNK_SIZE, 
-            chunk_overlap=config.CHILD_CHUNK_OVERLAP
+            chunk_size=config.CHILD_CHUNK_SIZE,
+            chunk_overlap=config.CHILD_CHUNK_OVERLAP,
+            separators=config.TEXT_SPLIT_SEPARATORS,
         )
         self.__min_parent_size = config.MIN_PARENT_SIZE
         self.__max_parent_size = config.MAX_PARENT_SIZE
@@ -85,7 +86,8 @@ class DocumentChuncker:
             else:
                 splitter = RecursiveCharacterTextSplitter(
                     chunk_size=self.__max_parent_size,
-                    chunk_overlap=config.CHILD_CHUNK_OVERLAP
+                    chunk_overlap=config.CHILD_CHUNK_OVERLAP,
+                    separators=config.TEXT_SPLIT_SEPARATORS,
                 )
                 sub_chunks = splitter.split_documents([chunk])
                 split_chunks.extend(sub_chunks)
