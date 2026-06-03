@@ -63,6 +63,32 @@ class DocumentManager:
             return []
         return sorted([p.name.replace(".md", ".pdf") for p in self.markdown_dir.glob("*.md")])
     
+    def reindex_all(self, progress_callback=None) -> int:
+        """Re-chunk and embed every markdown file (e.g. after embedding model change)."""
+        md_files = sorted(self.markdown_dir.glob("*.md"))
+        if not md_files:
+            return 0
+
+        self.rag_system.parent_store.clear_store()
+        self.rag_system.vector_db.delete_collection(self.rag_system.collection_name)
+        self.rag_system.vector_db.create_collection(self.rag_system.collection_name)
+        collection = self.rag_system.vector_db.get_collection(self.rag_system.collection_name)
+
+        indexed = 0
+        for i, md_path in enumerate(md_files):
+            if progress_callback:
+                progress_callback((i + 1) / len(md_files), L.UI_PROCESSING.format(name=md_path.name))
+            try:
+                parent_chunks, child_chunks = self.rag_system.chunker.create_chunks_single(md_path)
+                if not child_chunks:
+                    continue
+                collection.add_documents(child_chunks)
+                self.rag_system.parent_store.save_many(parent_chunks)
+                indexed += 1
+            except Exception as e:
+                print(f"Error reindexing {md_path}: {e}")
+        return indexed
+
     def clear_all(self):
         self.markdown_dir.mkdir(parents=True, exist_ok=True)
         clear_directory_contents(self.markdown_dir)

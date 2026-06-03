@@ -20,13 +20,18 @@ class RAGSystem:
         self.thread_id = str(uuid.uuid4())
         self.recursion_limit = config.GRAPH_RECURSION_LIMIT
 
-    def initialize(self):
-        self.vector_db.create_collection(self.collection_name)
+    def initialize(self) -> bool:
+        """Build agent graph. Returns True if markdown files need re-indexing into Qdrant."""
+        collection_recreated = self.vector_db.create_collection(self.collection_name)
         collection = self.vector_db.get_collection(self.collection_name)
 
         llm = ChatOllama(model=config.LLM_MODEL, temperature=config.LLM_TEMPERATURE)
         tools = ToolFactory(collection).create_tools()
         self.agent_graph = create_agent_graph(llm, tools)
+
+        return self.vector_db.should_reindex_markdown(
+            self.collection_name, collection_recreated
+        )
 
     def get_config(self):
         cfg = {"configurable": {"thread_id": self.thread_id}, "recursion_limit": self.recursion_limit}

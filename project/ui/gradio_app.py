@@ -9,9 +9,14 @@ ASSETS_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
 
 def create_gradio_ui():
     rag_system = RAGSystem()
-    rag_system.initialize()
-    
+    needs_reindex = rag_system.initialize()
+
     doc_manager = DocumentManager(rag_system)
+    if needs_reindex:
+        indexed = doc_manager.reindex_all()
+        if indexed:
+            gr.Info(L.UI_REINDEXED.format(count=indexed))
+
     chat_interface = ChatInterface(rag_system)
     
     def format_file_list():
@@ -44,7 +49,7 @@ def create_gradio_ui():
     def clear_chat_handler():
         chat_interface.clear_session()
     
-    with gr.Blocks(title=L.UI_TITLE, rtl=True) as demo:
+    with gr.Blocks(title=L.UI_TITLE) as demo:
         
         with gr.Tab(L.UI_TAB_DOCUMENTS, elem_id="doc-management-tab"):
             gr.Markdown(L.UI_UPLOAD_TITLE)

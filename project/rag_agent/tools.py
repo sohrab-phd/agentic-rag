@@ -1,6 +1,7 @@
 from typing import List
 from langchain_core.tools import tool
 from db.parent_store_manager import ParentStoreManager
+import locale_fa as L
 
 class ToolFactory:
     
@@ -28,7 +29,10 @@ class ToolFactory:
             ])            
 
         except Exception as e:
-            return f"RETRIEVAL_ERROR: {str(e)}"
+            err = str(e)
+            if "not aligned" in err and ("768" in err or "1024" in err):
+                return f"RETRIEVAL_ERROR: {L.RETRIEVAL_DIM_MISMATCH}"
+            return f"RETRIEVAL_ERROR: {err}"
     
     def _retrieve_many_parent_chunks(self, parent_ids: List[str]) -> str:
         """Retrieve full parent chunks by their IDs.
