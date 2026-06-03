@@ -1,4 +1,6 @@
 custom_css = """
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600&display=swap');
+
     /* ============================================
        MAIN CONTAINER
        ============================================ */
@@ -10,7 +12,8 @@ custom_css = """
         max-width: 1000px !important;
         width: 100% !important;
         margin: 0 auto !important;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        direction: rtl;
+        font-family: 'Vazirmatn', Tahoma, 'Segoe UI', sans-serif;
         background: #0f0f0f !important;
     }
     
@@ -97,6 +100,7 @@ custom_css = """
        CHAT INPUT BOX
        ============================================ */
     textarea[placeholder="Type a message..."],
+    textarea[placeholder="پیامی بنویسید..."],
     textarea[data-testid*="textbox"]:not(#file-list-box textarea) {
         background: transparent !important;
         border: none !important;

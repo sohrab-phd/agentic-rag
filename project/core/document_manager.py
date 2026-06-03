@@ -1,6 +1,7 @@
 from pathlib import Path
 import shutil
 import config
+import locale_fa as L
 from utils import pdfs_to_markdowns, clear_directory_contents
 
 class DocumentManager:
@@ -25,7 +26,7 @@ class DocumentManager:
             
         for i, doc_path in enumerate(document_paths):
             if progress_callback:
-                progress_callback((i + 1) / len(document_paths), f"Processing {Path(doc_path).name}")
+                progress_callback((i + 1) / len(document_paths), L.UI_PROCESSING.format(name=Path(doc_path).name))
                 
             doc_name = Path(doc_path).stem
             md_path = self.markdown_dir / f"{doc_name}.md"

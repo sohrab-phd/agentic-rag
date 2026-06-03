@@ -2,6 +2,7 @@ import gradio as gr
 from core.chat_interface import ChatInterface
 from core.document_manager import DocumentManager
 from core.rag_system import RAGSystem
+import locale_fa as L
 import os
 
 ASSETS_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
@@ -16,7 +17,7 @@ def create_gradio_ui():
     def format_file_list():
         files = doc_manager.get_markdown_files()
         if not files:
-            return "📭 No documents available in the knowledge base"
+            return L.UI_NO_DOCUMENTS
         return "\n".join([f"{f}" for f in files])
     
     def upload_handler(files, progress=gr.Progress()):
@@ -28,12 +29,12 @@ def create_gradio_ui():
             progress_callback=lambda p, desc: progress(p, desc=desc)
         )
         
-        gr.Info(f"✅ Added: {added} | Skipped: {skipped}")
+        gr.Info(L.UI_ADDED_INFO.format(added=added, skipped=skipped))
         return None, format_file_list()
     
     def clear_handler():
         doc_manager.clear_all()
-        gr.Info(f"🗑️ Removed all documents")
+        gr.Info(L.UI_CLEARED_INFO)
         return format_file_list()
     
     def chat_handler(msg, hist):
@@ -43,23 +44,23 @@ def create_gradio_ui():
     def clear_chat_handler():
         chat_interface.clear_session()
     
-    with gr.Blocks(title="Agentic RAG") as demo:
+    with gr.Blocks(title=L.UI_TITLE, rtl=True) as demo:
         
-        with gr.Tab("Documents", elem_id="doc-management-tab"):
-            gr.Markdown("## Add New Documents")
-            gr.Markdown("Upload PDF or Markdown files. Duplicates will be automatically skipped.")
+        with gr.Tab(L.UI_TAB_DOCUMENTS, elem_id="doc-management-tab"):
+            gr.Markdown(L.UI_UPLOAD_TITLE)
+            gr.Markdown(L.UI_UPLOAD_DESC)
             
             files_input = gr.File(
-                label="Drop PDF or Markdown files here",
+                label=L.UI_FILE_LABEL,
                 file_count="multiple",
                 type="filepath",
                 height=200,
                 show_label=False
             )
             
-            add_btn = gr.Button("Add Documents", variant="primary", size="md")
+            add_btn = gr.Button(L.UI_ADD_BTN, variant="primary", size="md")
             
-            gr.Markdown("## Current Documents in the Knowledge Base")
+            gr.Markdown(L.UI_CURRENT_DOCS)
             file_list = gr.Textbox(
                 value=format_file_list(),
                 interactive=False,
@@ -70,17 +71,17 @@ def create_gradio_ui():
             )
             
             with gr.Row():
-                refresh_btn = gr.Button("Refresh", size="md")
-                clear_btn = gr.Button("Clear All", variant="stop", size="md")
+                refresh_btn = gr.Button(L.UI_REFRESH_BTN, size="md")
+                clear_btn = gr.Button(L.UI_CLEAR_BTN, variant="stop", size="md")
             
             add_btn.click(upload_handler, [files_input], [files_input, file_list], show_progress="corner")
             refresh_btn.click(format_file_list, None, file_list)
             clear_btn.click(clear_handler, None, file_list)
         
-        with gr.Tab("Chat"):
+        with gr.Tab(L.UI_TAB_CHAT):
             chatbot = gr.Chatbot(
                 height=720, 
-                placeholder="<strong>Ask me anything!</strong><br><em>I'll search, reason, and act to give you the best answer :)</em>",
+                placeholder=L.UI_CHAT_PLACEHOLDER,
                 show_label=False,
                 avatar_images=(None, os.path.join(ASSETS_DIR, "chatbot_avatar.png")),
                 layout="bubble"
