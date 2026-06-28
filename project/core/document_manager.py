@@ -63,6 +63,14 @@ class DocumentManager:
             return []
         return sorted([p.name.replace(".md", ".pdf") for p in self.markdown_dir.glob("*.md")])
     
+    def _reset_vector_store(self):
+        if not self.rag_system.vector_db.delete_collection(self.rag_system.collection_name):
+            raise RuntimeError(
+                "Could not clear the vector database. "
+                "Stop other running instances of this app and try again."
+            )
+        self.rag_system.vector_db.create_collection(self.rag_system.collection_name)
+
     def reindex_all(self, progress_callback=None) -> int:
         """Re-chunk and embed every markdown file (e.g. after embedding model change)."""
         md_files = sorted(self.markdown_dir.glob("*.md"))
@@ -70,8 +78,7 @@ class DocumentManager:
             return 0
 
         self.rag_system.parent_store.clear_store()
-        self.rag_system.vector_db.delete_collection(self.rag_system.collection_name)
-        self.rag_system.vector_db.create_collection(self.rag_system.collection_name)
+        self._reset_vector_store()
         collection = self.rag_system.vector_db.get_collection(self.rag_system.collection_name)
 
         indexed = 0
@@ -94,5 +101,4 @@ class DocumentManager:
         clear_directory_contents(self.markdown_dir)
         
         self.rag_system.parent_store.clear_store()
-        self.rag_system.vector_db.delete_collection(self.rag_system.collection_name)
-        self.rag_system.vector_db.create_collection(self.rag_system.collection_name)
+        self._reset_vector_store()

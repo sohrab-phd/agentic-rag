@@ -1,3 +1,6 @@
+import shutil
+from pathlib import Path
+
 import config
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_qdrant import QdrantVectorStore, FastEmbedSparse, RetrievalMode
@@ -19,7 +22,11 @@ class VectorDbManager:
         )
 
     def _dense_vector_size(self) -> int:
-        return len(self.__dense_embeddings.embed_query("آزمایش"))
+        # Match langchain-qdrant, which sizes collections from embed_documents().
+        return len(self.__dense_embeddings.embed_documents(["آزمایش"])[0])
+
+    def _collection_storage_path(self, collection_name: str) -> Path:
+        return Path(config.QDRANT_DB_PATH) / "collection" / collection_name
 
     def _dense_vector_params(self, collection_name: str) -> qmodels.VectorParams | None:
         if not self.__client.collection_exists(collection_name):
@@ -77,7 +84,46 @@ class VectorDbManager:
             return True
         if stored_size is not None and stored_size != expected_size:
             return True
+        if (
+            schema_size is not None
+            and stored_size is not None
+            and schema_size != stored_size
+        ):
+            return True
         return False
+
+    def delete_collection(self, collection_name) -> bool:
+        """Delete a collection and any leftover on-disk storage."""
+        try:
+            if self.__client.collection_exists(collection_name):
+                print(f"Removing existing Qdrant collection: {collection_name}")
+                self.__client.delete_collection(collection_name)
+        except Exception as e:
+            print(f"Warning: could not delete collection {collection_name}: {e}")
+
+        storage_path = self._collection_storage_path(collection_name)
+        if storage_path.exists():
+            print(f"Removing leftover collection storage: {storage_path}")
+            shutil.rmtree(storage_path, ignore_errors=True)
+
+        if self.__client.collection_exists(collection_name):
+            print(
+                f"Warning: collection '{collection_name}' still exists after delete. "
+                "Close other app instances using the same qdrant_db folder."
+            )
+            return False
+        return True
+
+    def _purge_incompatible_collection(self, collection_name: str, expected_size: int) -> bool:
+        schema_size = self._existing_collection_vector_size(collection_name)
+        stored_size = self._sample_stored_dense_dimension(collection_name)
+        print(
+            f"WARNING: Collection '{collection_name}' is incompatible with "
+            f"embeddings ({expected_size}-dim). "
+            f"schema={schema_size}, stored_points={stored_size}. "
+            f"Recreating collection - re-indexing documents."
+        )
+        return self.delete_collection(collection_name)
 
     def create_collection(self, collection_name) -> bool:
         """Create or validate collection. Returns True if vectors were wiped/recreated."""
@@ -85,18 +131,18 @@ class VectorDbManager:
         recreated = False
 
         if self._collection_needs_recreate(collection_name, expected_size):
-            schema_size = self._existing_collection_vector_size(collection_name)
-            stored_size = self._sample_stored_dense_dimension(collection_name)
-            print(
-                f"WARNING: Collection '{collection_name}' is incompatible with "
-                f"embeddings ({expected_size}-dim). "
-                f"schema={schema_size}, stored_points={stored_size}. "
-                f"Recreating collection - re-indexing documents."
-            )
-            self.delete_collection(collection_name)
+            if not self._purge_incompatible_collection(collection_name, expected_size):
+                raise RuntimeError(
+                    f"Could not remove incompatible Qdrant collection '{collection_name}'. "
+                    "Stop other running instances of this app and try again."
+                )
             recreated = True
 
         if self.__client.collection_exists(collection_name):
+            if self._collection_needs_recreate(collection_name, expected_size):
+                raise RuntimeError(
+                    f"Qdrant collection '{collection_name}' is still incompatible after purge."
+                )
             print(f"[OK] Collection already exists: {collection_name}")
             return recreated
 
@@ -124,14 +170,6 @@ class VectorDbManager:
         stored_size = self._sample_stored_dense_dimension(collection_name)
         expected_size = self._dense_vector_size()
         return stored_size is not None and stored_size != expected_size
-
-    def delete_collection(self, collection_name):
-        try:
-            if self.__client.collection_exists(collection_name):
-                print(f"Removing existing Qdrant collection: {collection_name}")
-                self.__client.delete_collection(collection_name)
-        except Exception as e:
-            print(f"Warning: could not delete collection {collection_name}: {e}")
 
     def get_collection(self, collection_name) -> QdrantVectorStore:
         try:
