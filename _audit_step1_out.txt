@@ -1,0 +1,23 @@
+﻿python.exe : Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher 
+rate limits and faster downloads.
+At C:\Users\Cyber Power\AppData\Local\Temp\ps-script-551afe99-4949-49e7-85c0-3fcacf0155b1.ps1:110 char:1
++ & "d:\projects\agentic-rag\RAG\Scripts\python.exe" "d:\projects\agent ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Warning: You ar...ster downloads.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights: 100%|ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê| 391/391 [00:00<00:00, 7286.37it/s]
+POINT_COUNT 7
+POINT 1000f29abe41457bb82ba0777c474c7f dim 1024 parent ┌å┌⌐█î╪»┘ç ┘ü╪º╪▒╪│█î_parent_0 text . ╪»╪▒ ┘å╪¬╪│╪º┘ä┘ç ╪»╪│╪¬┘ç█î ╪¬ ┘ê╪º┘å╪» ╪¬█î┘à ┌⌐█î ┘à┌⌐█î ╪¼┘ü╪¬ ┘à┘ê╪¼┘ê╪» ╪¿╪▒┌å╪│╪¿ ╪▒╪º╪¿╪╖┘ç ╪¿┘ç█î╪╡ █î┌⌐ ╪¬╪«╪╡ ╪┤█î ┘╛╪▒╪»╪º╪▓╪┤ ╪»╪º╪»┘ç ┘ç╪º ╪¿╪º ╪º╪│╪¬┘ü╪º╪»┘ç█î ┘ç╪º █î █î╪▒█î ╪º╪»┌» █î┘å█î ┘à╪º╪┤
+POINT 24293ddac32b407cb2858361f79f5500 dim 1024 parent ┌å┌⌐█î╪»┘ç ┘ü╪º╪▒╪│█î_parent_0 text . ╪▒┘ê╪┤█î ┘ç╪º ╪º╪│╪¬╪«╪▒╪º╪¼ ╪º╪╖╪º┘ä╪╣╪º╪¬ ╪º╪│╪¬╪î ┘à┌⌐╪º┘å╪▒█î ┘à╪│╪º┘ä┘ç╪º╪▓ ╪▓ ╪¿┘ç█î ╪¿ █î ╪¬ ┘å╪┤╪º┘å ╪»╪º╪» ┌⌐┘ç ╪¿┘ç ╪¬╪▒╪¬ ╪º█î ╪»┘ê ╪┤█î╪¿ ╪º╪▓ ╪»┘ê ┘à┘ê╪¼┘ê╪»╪¬┘ê╪º┘å ┘å█î╪¿ █î. ╪▒┘ê╪º╪¿╪╖ ╪▒╪º ┘à
+POINT 56ca1d31281f496c8504d662bb3eb802 dim 1024 parent ┌å┌⌐█î╪»┘ç ┘ü╪º╪▒╪│█î_parent_0 text . ╪»╪▒ ╪º╪┤┘ê┘å╪»█î█î█î ╪┤┘å╪º╪«╪¬┘ç ┘à█î█î ┘ê ╪▒┘ê╪º╪¿╪╖ ┌å┘å╪»╪¬╪º╪╣┘å┘ê╪º┘å ╪▒┘ê╪º╪¿╪╖ ╪»┘ê╪»┘ê . ╪┤┘ê╪»█î┘ä┘ç ┘à╪¡╪»┘ê╪» ┘à ╪«╪╖ ┘ä┘ê █î╪î █î █î╪▒█î ╪º╪»┌» ┘é█î ╪╣┘à█î █î╪▒█î ╪º╪»┌» ╪º┘å╪¬┘é╪º┘ä ╪î╪º╪│╪¬╪«╪▒╪º
+Exception ignored in: <function QdrantClient.__del__ at 0x000002753B895620>
+Traceback (most recent call last):
+  File "D:\projects\agentic-rag\RAG\Lib\site-packages\qdrant_client\qdrant_client.py", line 169, in __del__
+  File "D:\projects\agentic-rag\RAG\Lib\site-packages\qdrant_client\qdrant_client.py", line 178, in close
+  File "D:\projects\agentic-rag\RAG\Lib\site-packages\qdrant_client\local\qdrant_local.py", line 88, in close
+  File "D:\projects\agentic-rag\RAG\Lib\site-packages\portalocker\portalocker.py", line 339, in unlock
+  File "D:\projects\agentic-rag\RAG\Lib\site-packages\portalocker\portalocker.py", line 244, in unlock
+ModuleNotFoundError: import of msvcrt halted; None in sys.modules

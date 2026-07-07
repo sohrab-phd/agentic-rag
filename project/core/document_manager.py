@@ -31,7 +31,7 @@ class DocumentManager:
             doc_name = Path(doc_path).stem
             md_path = self.markdown_dir / f"{doc_name}.md"
             
-            if md_path.exists():
+            if md_path.exists() and Path(doc_path).suffix.lower() == ".pdf":
                 skipped += 1
                 continue
                 
@@ -39,7 +39,7 @@ class DocumentManager:
                 if Path(doc_path).suffix.lower() == ".md":
                     shutil.copy(doc_path, md_path)
                 else:
-                    pdfs_to_markdowns(str(doc_path), overwrite=False)            
+                    pdfs_to_markdowns(str(doc_path), overwrite=True)            
                 parent_chunks, child_chunks = self.rag_system.chunker.create_chunks_single(md_path)
                 
                 if not child_chunks:
@@ -95,6 +95,21 @@ class DocumentManager:
             except Exception as e:
                 print(f"Error reindexing {md_path}: {e}")
         return indexed
+
+    def reextract_from_docs(self, progress_callback=None) -> int:
+        """Re-convert PDFs in docs/ to markdown (overwrite) and re-index the knowledge base."""
+        docs_dir = Path(config.DOCS_DIR)
+        docs_dir.mkdir(parents=True, exist_ok=True)
+        pdf_files = sorted(docs_dir.glob("*.pdf"))
+        if not pdf_files:
+            return 0
+
+        for i, pdf_path in enumerate(pdf_files):
+            if progress_callback:
+                progress_callback((i + 1) / len(pdf_files), L.UI_PROCESSING.format(name=pdf_path.name))
+            pdfs_to_markdowns(str(pdf_path), overwrite=True)
+
+        return self.reindex_all(progress_callback=progress_callback)
 
     def clear_all(self):
         self.markdown_dir.mkdir(parents=True, exist_ok=True)

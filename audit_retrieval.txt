@@ -1,0 +1,10 @@
+﻿python :   File "<string>", line 32
+At C:\Users\Cyber Power\AppData\Local\Temp\ps-script-f5169a41-e5d5-480b-8772-f4c69044b970.ps1:109 char:70
++ ... IOENCODING='utf-8'; cd "d:\projects\agentic-rag\project"; python -c "
++                                                               ~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (  File "<string>", line 32:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    print(f'score={score:.4f} parent={doc.metadata.get(" parent_id\,\\)}
+                                                       ^
+SyntaxError: unterminated string literal (detected at line 32)

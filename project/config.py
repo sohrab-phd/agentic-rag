@@ -4,8 +4,15 @@ import os
 _BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 MARKDOWN_DIR = os.path.join(_BASE_DIR, "markdown_docs")
+DOCS_DIR = os.path.join(_BASE_DIR, "docs")
 PARENT_STORE_PATH = os.path.join(_BASE_DIR, "parent_store")
 QDRANT_DB_PATH = os.path.join(_BASE_DIR, "qdrant_db")
+
+# --- PDF Extraction (Persian / RTL) ---
+# "pdf2text_arabic" — RTL-aware PyMuPDF repair (recommended for Persian)
+# "pymupdf4llm"     — legacy English-oriented markdown converter
+PDF_EXTRACTOR = os.environ.get("PDF_EXTRACTOR", "pdf2text_arabic")
+PDF_OCR_STRATEGY = os.environ.get("PDF_OCR_STRATEGY", "never")
 
 # --- Qdrant Configuration ---
 CHILD_COLLECTION = "document_child_chunks"

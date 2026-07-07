@@ -7,6 +7,8 @@ langchain-qdrant==1.1.0
 langchain-text-splitters==1.1.2
 langfuse==4.6.1
 langgraph==1.2.0
+pdf2text-arabic>=1.4.0
+pdfplumber>=0.11.0
 pymupdf4llm==1.27.2.3
 python-dotenv==1.2.2
 sentence-transformers==5.5.0
