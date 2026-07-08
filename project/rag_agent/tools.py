@@ -17,7 +17,7 @@ class ToolFactory:
             limit: Maximum number of results to return
         """
         try:
-            results = self.collection.similarity_search(query, k=limit, score_threshold=0.7)
+            results = self.collection.similarity_search(query, k=limit, score_threshold=0.5)
             if not results:
                 return "NO_RELEVANT_CHUNKS"
 
