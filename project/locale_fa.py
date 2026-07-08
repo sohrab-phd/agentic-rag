@@ -3,7 +3,14 @@
 CLARIFICATION_FALLBACK = "برای درک سوال شما به اطلاعات بیشتری نیاز دارم."
 
 FORCE_SEARCH_MESSAGE = (
-    "برای پاسخ به این پرسش، اولین قدم باید فراخوانی 'search_child_chunks' باشد."
+    "برای شروع بازیابی، اولین قدم باید فراخوانی 'search_child_chunks' باشد. پاسخ نهایی ننویس."
+)
+
+NO_RETRIEVED_CHUNKS = "هیچ بخشی از اسناد بازیابی نشد."
+
+GROUNDED_ANSWER_USER = (
+    "پرسش کاربر:\n{question}\n\n"
+    "بخش‌های بازیابی‌شده از اسناد (تنها منبع مجاز):\n{chunks}"
 )
 
 NO_ANSWER = "امکان تولید پاسخ وجود نداشت."

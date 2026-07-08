@@ -12,7 +12,7 @@ def route_after_rewrite(state: State) -> Literal["request_clarification", "agent
                 for idx, query in enumerate(state["rewrittenQuestions"])
             ]
     
-def route_after_orchestrator_call(state: AgentState) -> Literal["tool", "fallback_response", "collect_answer"]:
+def route_after_orchestrator_call(state: AgentState) -> Literal["tools", "fallback_response", "generate_grounded_answer"]:
     iteration = state.get("iteration_count", 0)
     tool_count = state.get("tool_call_count", 0)
 
@@ -23,6 +23,6 @@ def route_after_orchestrator_call(state: AgentState) -> Literal["tool", "fallbac
     tool_calls = getattr(last_message, "tool_calls", None) or []
 
     if not tool_calls:
-        return "collect_answer"
+        return "generate_grounded_answer"
     
     return "tools"

@@ -8,6 +8,45 @@ from utils import estimate_context_tokens
 from config import BASE_TOKEN_THRESHOLD, TOKEN_GROWTH_FACTOR
 import locale_fa as L
 
+_EMPTY_TOOL_RESULTS = frozenset({
+    "NO_RELEVANT_CHUNKS",
+    "NO_PARENT_DOCUMENT",
+    "NO_PARENT_DOCUMENTS",
+})
+
+
+def _collect_retrieved_chunks(state: AgentState) -> str:
+    """Extract unique tool outputs (retrieved document chunks only)."""
+    seen: set[str] = set()
+    parts: list[str] = []
+    for msg in state.get("messages", []):
+        if not isinstance(msg, ToolMessage):
+            continue
+        content = str(msg.content).strip()
+        if not content or content in seen or content in _EMPTY_TOOL_RESULTS:
+            continue
+        if content.startswith("RETRIEVAL_ERROR:") or content.startswith("PARENT_RETRIEVAL_ERROR:"):
+            continue
+        parts.append(content)
+        seen.add(content)
+    return "\n\n---\n\n".join(parts)
+
+
+def generate_grounded_answer(state: AgentState, llm):
+    """Generate final answer from retrieved chunks only (no tools)."""
+    chunks = _collect_retrieved_chunks(state)
+    question = state.get("question", "")
+    user_content = L.GROUNDED_ANSWER_USER.format(
+        question=question,
+        chunks=chunks if chunks else L.NO_RETRIEVED_CHUNKS,
+    )
+    response = llm.invoke([
+        SystemMessage(content=get_grounded_answer_prompt()),
+        HumanMessage(content=user_content),
+    ])
+    return {"messages": [response]}
+
+
 def summarize_history(state: State, llm):
     if len(state["messages"]) < 4:
         return {"conversation_summary": ""}
@@ -66,32 +105,8 @@ def orchestrator(state: AgentState, llm_with_tools):
     return {"messages": [response], "tool_call_count": len(tool_calls) if tool_calls else 0, "iteration_count": 1}
 
 def fallback_response(state: AgentState, llm):
-    seen = set()
-    unique_contents = []
-    for m in state["messages"]:
-        if isinstance(m, ToolMessage) and m.content not in seen:
-            unique_contents.append(m.content)
-            seen.add(m.content)
-
-    context_summary = state.get("context_summary", "").strip()
-
-    context_parts = []
-    if context_summary:
-        context_parts.append(f"{L.COMPRESSED_RESEARCH_CONTEXT}{context_summary}")
-    if unique_contents:
-        context_parts.append(
-            L.RETRIEVED_DATA_HEADER +
-            "\n\n".join(L.DATA_SOURCE.format(i=i) + content for i, content in enumerate(unique_contents, 1))
-        )
-
-    context_text = "\n\n".join(context_parts) if context_parts else L.NO_RETRIEVED_DATA
-
-    prompt_content = L.FALLBACK_USER_PROMPT.format(
-        question=state.get("question"),
-        context=context_text,
-    )
-    response = llm.invoke([SystemMessage(content=get_fallback_response_prompt()), HumanMessage(content=prompt_content)])
-    return {"messages": [response]}
+    """Budget exhausted — use the same strict grounded answer path."""
+    return generate_grounded_answer(state, llm)
 
 def should_compress_context(state: AgentState) -> Command[Literal["compress_context", "orchestrator"]]:
     messages = state["messages"]
