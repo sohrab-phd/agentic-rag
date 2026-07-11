@@ -30,8 +30,8 @@ SPARSE_MODEL = "Qdrant/bm25"
 # FastEmbed BM25 has no Persian stemmer/stopwords — disable English stemming.
 BM25_DISABLE_STEMMER = True
 # Local Ollama model with strong multilingual + tool-calling support.
-# Run: ollama pull qwen2.5:7b-instruct
-LLM_MODEL = os.environ.get("OLLAMA_MODEL", "qwen2.5:7b-instruct")
+# Run: ollama pull gemma4:e4b-it-qat
+LLM_MODEL = os.environ.get("OLLAMA_MODEL", "gemma4:e4b-it-qat")
 LLM_TEMPERATURE = 0
 
 # --- Agent Configuration ---
