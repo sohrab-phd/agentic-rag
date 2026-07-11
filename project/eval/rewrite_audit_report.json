@@ -1,0 +1,675 @@
+{
+  "timestamp_utc": "2026-07-11T20:19:29.978513+00:00",
+  "scope": "paraphrase + multi_intent (all 7 benchmark items)",
+  "summary": {
+    "total_cases": 7,
+    "failed_in_pipeline_a": 6,
+    "rewrite_caused_retrieval_regressions": 0,
+    "rewrite_caused_answer_regressions": 2,
+    "would_pass_if_original_query_used_for_grounded_answer": 2,
+    "ab_retrieval_improved_with_original": 0,
+    "ab_answer_improved_with_original": 2
+  },
+  "failure_tags": {
+    "missing_entities": 6,
+    "dropped_keywords": 6,
+    "intent_collapse": 1
+  },
+  "cases": [
+    {
+      "id": "golestan_para_001",
+      "category": "paraphrase",
+      "passed_in_pipeline_a": false,
+      "original_question": "اولین بار که وارد گلستان می‌شوم، رمزم چیست؟",
+      "rewritten_questions": [
+        "رمز ورود برای اولین استفاده در سامانه گلستان چیست؟"
+      ],
+      "search_query_used_in_a": "رمز ورود برای اولین استفاده در سامانه گلستان چیست؟",
+      "drift_analysis": {
+        "rewritten_count": 1,
+        "missing_must_in_rewrite": [
+          "کد ملی"
+        ],
+        "dropped_keywords": [
+          "اولینبارکهواردگلستانمیشوم،رمزمچیست؟"
+        ],
+        "added_keywords": [
+          "رمزورودبرایاولیناستفادهدرسامانهگلستانچیست؟"
+        ],
+        "preserved_keywords": [],
+        "issue_tags": [
+          "missing_entities",
+          "dropped_keywords"
+        ]
+      },
+      "pipeline_a": {
+        "retrieval": {
+          "source_hit": true,
+          "passage_recall": false,
+          "top_score": 0.8333333333333333,
+          "chunk_count": 3
+        },
+        "passed": false,
+        "failure_class": "retrieval_miss",
+        "latency_s": 73.53,
+        "answer": "رمز عبور اولیه در سامانه گلستان به‌صورت پیش‌فرض کد ملی دانشجو است.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+      },
+      "retrieval_b_original_query": {
+        "metrics": {
+          "source_hit": true,
+          "passage_recall": false,
+          "top_score": 0.8333333333333333,
+          "chunk_count": 2
+        },
+        "scores": [
+          {
+            "source": "سامانه گلستان.pdf",
+            "parent_id": "سامانه گلستان_parent_0",
+            "score": 0.8333333333333333,
+            "text": "\"ri.ca.urba.natselog\"را در مرورگر وارد کنید. پس از باز شدن صفحه اصلی، روی گزینه «ورود به سیستم» کلیک  \nکنید.  \nنام کاربری گلستان چیست؟  \nبهصورت پیشفرض شماره دانشجویی  \nرمز عبور اولیه گلستان چیست؟  \nبهصورت پیشفرض کد ملی دانشجو است.  \nاگر رمز عبور را فراموش کنیم چه باید کرد؟  \nدانشجو باید با کارشناس آ"
+          },
+          {
+            "source": "سامانه گلستان.pdf",
+            "parent_id": "سامانه گلستان_parent_3",
+            "score": 0.8333333333333333,
+            "text": "(در حال حاضر آقای کیانی مسئولیت ادمین سامانهی گلستان را به عهده دارد)  \nآیا بعد از اولین ورود به سامانه گلستان باید رمز عبور را تغییر داد؟  \nبله، سیستم در اولین ورود دانشجو را ملزم میکند که رمز عبور (و در صورت تمایل شناسه کاربری) را تغییر دهد.  \nآیا تغییر شناسه کاربری در گلستان توصیه میشود؟"
+          }
+        ],
+        "top_chunk_preview": "\"ri.ca.urba.natselog\"را در مرورگر وارد کنید. پس از باز شدن صفحه اصلی، روی گزینه «ورود به سیستم» کلیک\nکنید.\nنام کاربری گلستان چیست؟\nبهصورت پیشفرض شماره دانشجویی\nرمز عبور اولیه گلستان چیست؟\nبهصورت پیشفرض کد ملی دانشجو است.\nاگر رمز عبور را فراموش کنیم چ",
+        "latency_s": 0.343
+      },
+      "answer_b_original_query": {
+        "answer": "رمز عبور اولیه گلستان به‌صورت پیشفرض کد ملی دانشجو است.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+        "metrics": {
+          "source_hit": true,
+          "passage_recall": false,
+          "must_contain_pass": true,
+          "must_contain_missing": [],
+          "forbidden_violation": false,
+          "forbidden_hits": [],
+          "abstention_like": null,
+          "semantic_similarity": null,
+          "retrieved_count": 2,
+          "passed": false,
+          "failure_class": "retrieval_miss"
+        },
+        "latency_s": 9.42
+      },
+      "ab_comparison": {
+        "retrieval_passage_recall_delta": 0,
+        "top_score_delta": 0.0,
+        "pass_rate_a": false,
+        "pass_rate_b_grounded_only": false,
+        "rewrite_caused_retrieval_regression": false,
+        "rewrite_caused_answer_regression": false,
+        "likely_rewrite_root_cause": true
+      }
+    },
+    {
+      "id": "golestan_para_002",
+      "category": "paraphrase",
+      "passed_in_pipeline_a": false,
+      "original_question": "سیستم به من اجازه ثبت‌نام دروس را نمی‌دهد؛ دلیلش چیست؟",
+      "rewritten_questions": [
+        "چرا سیستم اجازه ثبت‌نام در دروس را برای من نمی‌دهد؟",
+        "دلایل عدم امکان ثبت‌نام در دروس از طریق سیستم چیست؟"
+      ],
+      "search_query_used_in_a": "چرا سیستم اجازه ثبت‌نام در دروس را برای من نمی‌دهد؟",
+      "drift_analysis": {
+        "rewritten_count": 2,
+        "missing_must_in_rewrite": [
+          "مشروط",
+          "پیشنیاز"
+        ],
+        "dropped_keywords": [
+          "سیستمبهمناجازهثبتنامدروسرانمیدهد؛دلیلشچیست؟"
+        ],
+        "added_keywords": [
+          "دلایلعدمامکانثبتنامدردروسازطریقسیستمچیست؟",
+          "چراسیستماجازهثبتنامدردروسرابرایمننمیدهد؟"
+        ],
+        "preserved_keywords": [],
+        "issue_tags": [
+          "missing_entities",
+          "dropped_keywords"
+        ]
+      },
+      "pipeline_a": {
+        "retrieval": {
+          "source_hit": true,
+          "passage_recall": false,
+          "top_score": 1.0,
+          "chunk_count": 1
+        },
+        "passed": false,
+        "failure_class": "retrieval_miss",
+        "latency_s": 179.07,
+        "answer": "دلایل عدم نمایش برخی دروس در سیستم عبارتند از: سیاست و محدودیت گروه آموزشی، ارائه درس فقط برای ورودی‌های خاص، یا رعایت نشدن پیشنیاز یا همنیاز.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+      },
+      "retrieval_b_original_query": {
+        "metrics": {
+          "source_hit": true,
+          "passage_recall": false,
+          "top_score": 0.5333333333333333,
+          "chunk_count": 3
+        },
+        "scores": [
+          {
+            "source": "سامانه گلستان.pdf",
+            "parent_id": "سامانه گلستان_parent_0",
+            "score": 0.5333333333333333,
+            "text": "• محدودیتهای اعمالشده توسط گروه آموزشی  \nثبت نهایی انتخاب واحد یعنی چه؟  \nیعنی انتخاب واحد شما قطعی شده و در سیستم ثبت شده است.  \nاگر ثبت نهایی نکنیم چه میشود؟  \nدروس انتخابشده ثبت نمیشوند و ممکن است از لیست شما حذف شوند.  \nچرا بعضی دروس نمایش داده نمیشود؟  \nبه دلایل زیر:  \n• سیاست و محدودیت گروه آم"
+          },
+          {
+            "source": "سامانه گلستان.pdf",
+            "parent_id": "سامانه گلستان_parent_2",
+            "score": 0.5,
+            "text": "چرا ترم جدید در گلستان فعال نشده است؟  \nبه این دلیل که:  \n• بازه ثبتنام هنوز شروع نشده  \n• تقویم آموزشی ترم جدید ابلاغ نشده  \nخطای «مجاز به ثبتنام نمیباشید» یعنی چه؟  \nدانشجو به دلایلی مثل:  \n• بدهی مالی  \n• منع آموزشی  \n• وضعیت غیرفعال  \n• اجازه ثبتنام ندارد.  \nخطای «بازه زمانی ثبتنام به پایان رسید"
+          },
+          {
+            "source": "سامانه گلستان.pdf",
+            "parent_id": "سامانه گلستان_parent_0",
+            "score": 0.5,
+            "text": "\"ri.ca.urba.natselog\"را در مرورگر وارد کنید. پس از باز شدن صفحه اصلی، روی گزینه «ورود به سیستم» کلیک  \nکنید.  \nنام کاربری گلستان چیست؟  \nبهصورت پیشفرض شماره دانشجویی  \nرمز عبور اولیه گلستان چیست؟  \nبهصورت پیشفرض کد ملی دانشجو است.  \nاگر رمز عبور را فراموش کنیم چه باید کرد؟  \nدانشجو باید با کارشناس آ"
+          }
+        ],
+        "top_chunk_preview": "• محدودیتهای اعمالشده توسط گروه آموزشی\nثبت نهایی انتخاب واحد یعنی چه؟\nیعنی انتخاب واحد شما قطعی شده و در سیستم ثبت شده است.\nاگر ثبت نهایی نکنیم چه میشود؟\nدروس انتخابشده ثبت نمیشوند و ممکن است از لیست شما حذف شوند.\nچرا بعضی دروس نمایش داده نمیشود؟\nبه ",
+        "latency_s": 0.414
+      },
+      "answer_b_original_query": {
+        "answer": "دلایل احتمالی عدم اجازه ثبت‌نام دروس در سیستم عبارتند از موارد زیر:\n\n*   دانشجو ممکن است با خطای «مجاز به ثبتنام نمیباشید» مواجه شده باشد که این خطا می‌تواند به دلایلی مانند بدهی مالی، منع آموزشی، وضعیت غیرفعال یا نداشتن اجازه ثبت‌نام دانشجو مربوط باشد.\n*   ممکن است دانشجویی خارج از بازه تعیین‌شده در تقویم آموزشی اقدام به ثبت‌نام کرده و خطای «بازه زمانی ثبتنام به پایان رسیده» را دریافت کند.\n*   در مورد عدم نمایش برخی دروس، دلایل زیر ذکر شده است: سیاست و محدودیت گروه آموزشی، ارائه درس فقط برای ورودی‌های خاص، یا رعایت نشدن پیشنیاز یا همنیاز.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+        "metrics": {
+          "source_hit": true,
+          "passage_recall": false,
+          "must_contain_pass": false,
+          "must_contain_missing": [
+            "مشروط"
+          ],
+          "forbidden_violation": false,
+          "forbidden_hits": [],
+          "abstention_like": null,
+          "semantic_similarity": null,
+          "retrieved_count": 3,
+          "passed": false,
+          "failure_class": "retrieval_miss"
+        },
+        "latency_s": 22.9
+      },
+      "ab_comparison": {
+        "retrieval_passage_recall_delta": 0,
+        "top_score_delta": -0.467,
+        "pass_rate_a": false,
+        "pass_rate_b_grounded_only": false,
+        "rewrite_caused_retrieval_regression": false,
+        "rewrite_caused_answer_regression": false,
+        "likely_rewrite_root_cause": true
+      }
+    },
+    {
+      "id": "golestan_para_003",
+      "category": "paraphrase",
+      "passed_in_pipeline_a": false,
+      "original_question": "مسیر ثبت‌نام دروس در گلستان کجاست؟",
+      "rewritten_questions": [
+        "مسیر و مراحل ثبت‌نام دروس در سامانه گلستان چیست؟"
+      ],
+      "search_query_used_in_a": "مسیر و مراحل ثبت‌نام دروس در سامانه گلستان چیست؟",
+      "drift_analysis": {
+        "rewritten_count": 1,
+        "missing_must_in_rewrite": [
+          "ثبتنام",
+          "اصلی"
+        ],
+        "dropped_keywords": [
+          "مسیرثبتنامدروسدرگلستانکجاست؟"
+        ],
+        "added_keywords": [
+          "مسیرومراحلثبتنامدروسدرسامانهگلستانچیست؟"
+        ],
+        "preserved_keywords": [],
+        "issue_tags": [
+          "missing_entities",
+          "dropped_keywords"
+        ]
+      },
+      "pipeline_a": {
+        "retrieval": {
+          "source_hit": true,
+          "passage_recall": false,
+          "top_score": 0.6428571428571428,
+          "chunk_count": 2
+        },
+        "passed": false,
+        "failure_class": "retrieval_miss",
+        "latency_s": 192.42,
+        "answer": "اطلاعاتی در منابع موجود نیست.\n\n---\n**منابع:**"
+      },
+      "retrieval_b_original_query": {
+        "metrics": {
+          "source_hit": true,
+          "passage_recall": false,
+          "top_score": 0.7,
+          "chunk_count": 2
+        },
+        "scores": [
+          {
+            "source": "سامانه گلستان.pdf",
+            "parent_id": "سامانه گلستان_parent_2",
+            "score": 0.7,
+            "text": "نمره عملی و تئوری بهصورت تجمیعی ثبت میشود و جداگانه نمایش داده نمیشود.  \nچگونه دروس ارائهشده ترم را ببینیم؟  \nاز طریق پردازش ثبتنام اصلی و لیست دروس ارائهشده توسط گروه آموزشی.  \nچگونه چارت درسی را مشاهده کنیم؟  \nاز گزارشهای آموزشی مرتبط با چارت درسی و تطبیق واحدها در گلستان.  \nاگر واحد کم بگیریم چه "
+          },
+          {
+            "source": "سامانه گلستان.pdf",
+            "parent_id": "سامانه گلستان_parent_2",
+            "score": 0.5,
+            "text": "چرا ترم جدید در گلستان فعال نشده است؟  \nبه این دلیل که:  \n• بازه ثبتنام هنوز شروع نشده  \n• تقویم آموزشی ترم جدید ابلاغ نشده  \nخطای «مجاز به ثبتنام نمیباشید» یعنی چه؟  \nدانشجو به دلایلی مثل:  \n• بدهی مالی  \n• منع آموزشی  \n• وضعیت غیرفعال  \n• اجازه ثبتنام ندارد.  \nخطای «بازه زمانی ثبتنام به پایان رسید"
+          }
+        ],
+        "top_chunk_preview": "نمره عملی و تئوری بهصورت تجمیعی ثبت میشود و جداگانه نمایش داده نمیشود.\nچگونه دروس ارائهشده ترم را ببینیم؟\nاز طریق پردازش ثبتنام اصلی و لیست دروس ارائهشده توسط گروه آموزشی.\nچگونه چارت درسی را مشاهده کنیم؟\nاز گزارشهای آموزشی مرتبط با چارت درسی و تطبیق ",
+        "latency_s": 0.366
+      },
+      "answer_b_original_query": {
+        "answer": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+        "metrics": {
+          "source_hit": true,
+          "passage_recall": false,
+          "must_contain_pass": false,
+          "must_contain_missing": [
+            "ثبتنام",
+            "اصلی"
+          ],
+          "forbidden_violation": false,
+          "forbidden_hits": [],
+          "abstention_like": null,
+          "semantic_similarity": null,
+          "retrieved_count": 2,
+          "passed": false,
+          "failure_class": "retrieval_miss"
+        },
+        "latency_s": 11.2
+      },
+      "ab_comparison": {
+        "retrieval_passage_recall_delta": 0,
+        "top_score_delta": 0.057,
+        "pass_rate_a": false,
+        "pass_rate_b_grounded_only": false,
+        "rewrite_caused_retrieval_regression": false,
+        "rewrite_caused_answer_regression": false,
+        "likely_rewrite_root_cause": true
+      }
+    },
+    {
+      "id": "golestan_para_004",
+      "category": "paraphrase",
+      "passed_in_pipeline_a": true,
+      "original_question": "اگر پسورد گلستان را یادم رفت چه کار کنم؟",
+      "rewritten_questions": [
+        "در صورت فراموشی رمز عبور (پسورد) سیستم گلستان، مراحل بازیابی یا بازنشانی چگونه است؟"
+      ],
+      "search_query_used_in_a": "در صورت فراموشی رمز عبور (پسورد) سیستم گلستان، مراحل بازیابی یا بازنشانی چگونه است؟",
+      "drift_analysis": {
+        "rewritten_count": 1,
+        "missing_must_in_rewrite": [
+          "کارشناس",
+          "ریست"
+        ],
+        "dropped_keywords": [
+          "اگرپسوردگلستانرایادمرفتچهکارکنم؟"
+        ],
+        "added_keywords": [
+          "درصورتفراموشیرمزعبور",
+          "سیستمگلستان،مراحلبازیابییابازنشانیچگونهاست؟",
+          "پسورد"
+        ],
+        "preserved_keywords": [],
+        "issue_tags": [
+          "missing_entities",
+          "dropped_keywords"
+        ]
+      },
+      "pipeline_a": {
+        "retrieval": {
+          "source_hit": true,
+          "passage_recall": true,
+          "top_score": 0.75,
+          "chunk_count": 4
+        },
+        "passed": true,
+        "failure_class": "ok",
+        "latency_s": 60.02,
+        "answer": "اگر رمز عبور فراموش شود، دانشجو باید با کارشناس آموزش دانشکده مربوطه تماس بگیرد و پس از ریست شدن رمز، اطلاعات ورود به حالت پیشفرض خواهد بود.\n---\n**منابع:**\nسامانه گلستان_parent_0.pdf"
+      },
+      "retrieval_b_original_query": {
+        "metrics": {
+          "source_hit": true,
+          "passage_recall": true,
+          "top_score": 1.0,
+          "chunk_count": 2
+        },
+        "scores": [
+          {
+            "source": "سامانه گلستان.pdf",
+            "parent_id": "سامانه گلستان_parent_0",
+            "score": 1.0,
+            "text": "\"ri.ca.urba.natselog\"را در مرورگر وارد کنید. پس از باز شدن صفحه اصلی، روی گزینه «ورود به سیستم» کلیک  \nکنید.  \nنام کاربری گلستان چیست؟  \nبهصورت پیشفرض شماره دانشجویی  \nرمز عبور اولیه گلستان چیست؟  \nبهصورت پیشفرض کد ملی دانشجو است.  \nاگر رمز عبور را فراموش کنیم چه باید کرد؟  \nدانشجو باید با کارشناس آ"
+          },
+          {
+            "source": "سامانه گلستان.pdf",
+            "parent_id": "سامانه گلستان_parent_0",
+            "score": 0.5,
+            "text": "مشکل فنی سامانه گلستان را به چه کسی باید گزارش داد؟  \nبه ادمین سامانه گلستان دانشگاه (در حال حاضر آقای کیانی)  \nآیا تغییر شناسه کاربری در گلستان توصیه میشود؟  \nخیر، توصیه میشود شناسه کاربری همان شماره دانشجویی باقی بماند تا فراموش نشود و فقط رمز عبور تغییر داده شود.  \nچگونه وارد سامانه گلستان شویم؟ "
+          }
+        ],
+        "top_chunk_preview": "\"ri.ca.urba.natselog\"را در مرورگر وارد کنید. پس از باز شدن صفحه اصلی، روی گزینه «ورود به سیستم» کلیک\nکنید.\nنام کاربری گلستان چیست؟\nبهصورت پیشفرض شماره دانشجویی\nرمز عبور اولیه گلستان چیست؟\nبهصورت پیشفرض کد ملی دانشجو است.\nاگر رمز عبور را فراموش کنیم چ",
+        "latency_s": 0.393
+      },
+      "answer_b_original_query": {
+        "answer": "دانشجو باید با کارشناس آموزش دانشکده مربوطه تماس بگیرد و پس از ریست شدن رمز، اطلاعات ورود به حالت پیشفرض خواهد بود.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+        "metrics": {
+          "source_hit": true,
+          "passage_recall": true,
+          "must_contain_pass": true,
+          "must_contain_missing": [],
+          "forbidden_violation": false,
+          "forbidden_hits": [],
+          "abstention_like": null,
+          "semantic_similarity": null,
+          "retrieved_count": 2,
+          "passed": true,
+          "failure_class": "ok"
+        },
+        "latency_s": 12.47
+      },
+      "ab_comparison": {
+        "retrieval_passage_recall_delta": 0,
+        "top_score_delta": 0.25,
+        "pass_rate_a": true,
+        "pass_rate_b_grounded_only": true,
+        "rewrite_caused_retrieval_regression": false,
+        "rewrite_caused_answer_regression": false,
+        "likely_rewrite_root_cause": false
+      }
+    },
+    {
+      "id": "golestan_para_005",
+      "category": "paraphrase",
+      "passed_in_pipeline_a": false,
+      "original_question": "حداکثر تعداد واحد مجاز برای کارشناسی چقدر است؟",
+      "rewritten_questions": [
+        "حداکثر تعداد واحدهای مجاز برای انجام کارشناسی چقدر است؟"
+      ],
+      "search_query_used_in_a": "حداکثر تعداد واحدهای مجاز برای انجام کارشناسی چقدر است؟",
+      "drift_analysis": {
+        "rewritten_count": 1,
+        "missing_must_in_rewrite": [
+          "۲۰",
+          "واحد"
+        ],
+        "dropped_keywords": [
+          "حداکثرتعدادواحدمجازبرایکارشناسیچقدراست؟"
+        ],
+        "added_keywords": [
+          "حداکثرتعدادواحدهایمجازبرایانجامکارشناسیچقدراست؟"
+        ],
+        "preserved_keywords": [],
+        "issue_tags": [
+          "missing_entities",
+          "dropped_keywords"
+        ]
+      },
+      "pipeline_a": {
+        "retrieval": {
+          "source_hit": true,
+          "passage_recall": true,
+          "top_score": 0.8333333333333333,
+          "chunk_count": 3
+        },
+        "passed": false,
+        "failure_class": "generation_incomplete_or_wrong",
+        "latency_s": 48.89,
+        "answer": "حداکثر سقف مجاز انتخاب واحد برای کارشناسی، ۲ و ۰ واحد است؛ اما اگر دانشجو معدل الف داشته باشد می‌تواند تا سقف ۲ و ۴ واحد دروس مد نظر را اخذ کند. همچنین، دانشجوی مشروط در مقطع کارشناسی حداکثر ۱۴ واحد می‌تواند بگیرد.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+      },
+      "retrieval_b_original_query": {
+        "metrics": {
+          "source_hit": true,
+          "passage_recall": true,
+          "top_score": 0.8333333333333333,
+          "chunk_count": 2
+        },
+        "scores": [
+          {
+            "source": "سامانه گلستان.pdf",
+            "parent_id": "سامانه گلستان_parent_2",
+            "score": 0.8333333333333333,
+            "text": "در مقطع کارشناسی:  \nحداقل مجاز معًمولا ۱ ۲ واحد است  \nدر صورت کمتر بودن، نیاز به مجوز آموزش دارد.  \nاگر واحد بیش از حد مجاز بگیریم چه میشود؟  \nسیستم اجازه ثبت نمیدهد، مگر با:  \nمجوز گروه آموزش  \nافزایش سقف واحد توسط آموزش  \nشرایط حذف توسط آموزش چیست؟  \nدر موارد خاص:  \n• مشکلات آموزشی  \n• تصمیمات کمی"
+          },
+          {
+            "source": "سامانه گلستان.pdf",
+            "parent_id": "سامانه گلستان_parent_1",
+            "score": 0.8333333333333333,
+            "text": "بدهی شهریه چگونه قابل بررسی است؟  \nاز بخش شهریه در سامانه گلستان.  \nسقف مجاز انتخاب واحد چند واحد است؟  \nکارشناسی: ۲ ۰ واحد (در صورتیکه دانشجو معدل الف باشد میتواند تا سقف ۲ ۴ واحد، دروس مد نظر را اخذ کند)  \nکارشناسی ارشد: ۱ ۴ واحد  \nدانشجوی مشروط چند واحد میتواند بگیرد؟  \nکارشناسی: حداکثر ۱ ۴ واحد "
+          }
+        ],
+        "top_chunk_preview": "در مقطع کارشناسی:\nحداقل مجاز معًمولا ۱ ۲ واحد است\nدر صورت کمتر بودن، نیاز به مجوز آموزش دارد.\nاگر واحد بیش از حد مجاز بگیریم چه میشود؟\nسیستم اجازه ثبت نمیدهد، مگر با:\nمجوز گروه آموزش\nافزایش سقف واحد توسط آموزش\nشرایط حذف توسط آموزش چیست؟\nدر موارد خاص:",
+        "latency_s": 0.377
+      },
+      "answer_b_original_query": {
+        "answer": "سقف مجاز انتخاب واحد برای مقطع کارشناسی، ۲۰ واحد است؛ در صورتی که دانشجو معدل الف داشته باشد، می‌تواند تا سقف ۲۴ واحد دروس مورد نظر را اخذ کند. همچنین، دانشجوی مشروط حداکثر ۱۴ واحد می‌تواند بگیرد.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+        "metrics": {
+          "source_hit": true,
+          "passage_recall": true,
+          "must_contain_pass": true,
+          "must_contain_missing": [],
+          "forbidden_violation": false,
+          "forbidden_hits": [],
+          "abstention_like": null,
+          "semantic_similarity": null,
+          "retrieved_count": 2,
+          "passed": true,
+          "failure_class": "ok"
+        },
+        "latency_s": 15.68
+      },
+      "ab_comparison": {
+        "retrieval_passage_recall_delta": 0,
+        "top_score_delta": 0.0,
+        "pass_rate_a": false,
+        "pass_rate_b_grounded_only": true,
+        "rewrite_caused_retrieval_regression": false,
+        "rewrite_caused_answer_regression": true,
+        "likely_rewrite_root_cause": true
+      }
+    },
+    {
+      "id": "multi_001",
+      "category": "multi_intent",
+      "passed_in_pipeline_a": false,
+      "original_question": "رمز اولیه گلستان چیست و اگر فراموش کنم چه کنم؟",
+      "rewritten_questions": [
+        "رمز اولیه گلستان چیست؟",
+        "اگر رمز گلستان را فراموش کردم، چگونه می‌توان آن را بازیابی کرد؟"
+      ],
+      "search_query_used_in_a": "رمز اولیه گلستان چیست؟",
+      "drift_analysis": {
+        "rewritten_count": 2,
+        "missing_must_in_rewrite": [
+          "کد ملی",
+          "کارشناس"
+        ],
+        "dropped_keywords": [
+          "رمزاولیهگلستانچیستواگرفراموشکنمچهکنم؟"
+        ],
+        "added_keywords": [
+          "اگررمزگلستانرافراموشکردم،چگونهمیتوانآنرابازیابیکرد؟",
+          "رمزاولیهگلستانچیست؟"
+        ],
+        "preserved_keywords": [],
+        "issue_tags": [
+          "missing_entities",
+          "dropped_keywords"
+        ]
+      },
+      "pipeline_a": {
+        "retrieval": {
+          "source_hit": true,
+          "passage_recall": true,
+          "top_score": 0.8333333333333333,
+          "chunk_count": 2
+        },
+        "passed": false,
+        "failure_class": "generation_incomplete_or_wrong",
+        "latency_s": 91.27,
+        "answer": "اگر رمز عبور را فراموش کنید، دانشجو باید با کارشناس آموزش دانشکده مربوطه تماس بگیرد و پس از ریست شدن رمز، اطلاعات ورود به حالت پیشفرض خواهد بود.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+      },
+      "retrieval_b_original_query": {
+        "metrics": {
+          "source_hit": true,
+          "passage_recall": true,
+          "top_score": 1.0,
+          "chunk_count": 2
+        },
+        "scores": [
+          {
+            "source": "سامانه گلستان.pdf",
+            "parent_id": "سامانه گلستان_parent_0",
+            "score": 1.0,
+            "text": "\"ri.ca.urba.natselog\"را در مرورگر وارد کنید. پس از باز شدن صفحه اصلی، روی گزینه «ورود به سیستم» کلیک  \nکنید.  \nنام کاربری گلستان چیست؟  \nبهصورت پیشفرض شماره دانشجویی  \nرمز عبور اولیه گلستان چیست؟  \nبهصورت پیشفرض کد ملی دانشجو است.  \nاگر رمز عبور را فراموش کنیم چه باید کرد؟  \nدانشجو باید با کارشناس آ"
+          },
+          {
+            "source": "سامانه گلستان.pdf",
+            "parent_id": "سامانه گلستان_parent_3",
+            "score": 0.6666666666666666,
+            "text": "آیا تغییر شناسه کاربری در گلستان توصیه میشود؟  \nخیر، توصیه میشود شناسه کاربری همان شماره دانشجویی باقی بماند تا فراموش نشود و فقط رمز عبور تغییر داده شود.  \nنام رسمی «انتخاب واحد» در سامانه گلستان چیست؟  \nدر سامانه گلستان، انتخاب واحد با عنوان «پردازش ثبتنام اصلی» شناخته میشود..  \nتفاوت «حذف و اضافه"
+          }
+        ],
+        "top_chunk_preview": "\"ri.ca.urba.natselog\"را در مرورگر وارد کنید. پس از باز شدن صفحه اصلی، روی گزینه «ورود به سیستم» کلیک\nکنید.\nنام کاربری گلستان چیست؟\nبهصورت پیشفرض شماره دانشجویی\nرمز عبور اولیه گلستان چیست؟\nبهصورت پیشفرض کد ملی دانشجو است.\nاگر رمز عبور را فراموش کنیم چ",
+        "latency_s": 0.384
+      },
+      "answer_b_original_query": {
+        "answer": "رمز عبور اولیه گلستان به‌صورت پیشفرض کد ملی دانشجو است. اگر رمز عبور را فراموش کنید، دانشجو باید با کارشناس آموزش دانشکده مربوطه تماس بگیرد و پس از ریست شدن رمز، اطلاعات ورود به حالت پیشفرض خواهد بود.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+        "metrics": {
+          "source_hit": true,
+          "passage_recall": true,
+          "must_contain_pass": true,
+          "must_contain_missing": [],
+          "forbidden_violation": false,
+          "forbidden_hits": [],
+          "abstention_like": null,
+          "semantic_similarity": null,
+          "retrieved_count": 2,
+          "passed": true,
+          "failure_class": "ok"
+        },
+        "latency_s": 13.37
+      },
+      "ab_comparison": {
+        "retrieval_passage_recall_delta": 0,
+        "top_score_delta": 0.167,
+        "pass_rate_a": false,
+        "pass_rate_b_grounded_only": true,
+        "rewrite_caused_retrieval_regression": false,
+        "rewrite_caused_answer_regression": true,
+        "likely_rewrite_root_cause": true
+      }
+    },
+    {
+      "id": "multi_002",
+      "category": "multi_intent",
+      "passed_in_pipeline_a": false,
+      "original_question": "استخراج رابطه چیست و یادگیری انتقالی چه نقشی دارد؟",
+      "rewritten_questions": [
+        "رابطه در زمینه مورد بحث چیست؟",
+        "یادگیری انتقالی چه نقشی ایفا می‌کند؟"
+      ],
+      "search_query_used_in_a": "رابطه در زمینه مورد بحث چیست؟",
+      "drift_analysis": {
+        "rewritten_count": 2,
+        "missing_must_in_rewrite": [
+          "رابطه",
+          "انتقالی"
+        ],
+        "dropped_keywords": [
+          "استخراجرابطهچیستویادگیریانتقالیچهنقشیدارد؟"
+        ],
+        "added_keywords": [
+          "رابطهدرزمینهموردبحثچیست؟",
+          "یادگیریانتقالیچهنقشیایفامیکند؟"
+        ],
+        "preserved_keywords": [],
+        "issue_tags": [
+          "missing_entities",
+          "dropped_keywords",
+          "intent_collapse"
+        ]
+      },
+      "pipeline_a": {
+        "retrieval": {
+          "source_hit": true,
+          "passage_recall": false,
+          "top_score": 0.5,
+          "chunk_count": 2
+        },
+        "passed": false,
+        "failure_class": "retrieval_miss",
+        "latency_s": 246.43,
+        "answer": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد.\n\n---\n**منابع:**\nچکیده فارسی.pdf"
+      },
+      "retrieval_b_original_query": {
+        "metrics": {
+          "source_hit": true,
+          "passage_recall": false,
+          "top_score": 0.75,
+          "chunk_count": 3
+        },
+        "scores": [
+          {
+            "source": "چکیده فارسی.pdf",
+            "parent_id": "چکیده فارسی_parent_0",
+            "score": 0.75,
+            "text": "استخراج اطلاعات به فرآیند استخراج خودکار دادههای ساختاریافته از منابع بدون ساختار برای امکان استفاده از چنین اطلاعاتی  \nتوسط برنامههای کاربردی دیگر اشاره دارد. استخراج روابط از منابع متنی، که به دنبال کشف رابطه معنایی نشان داده شده بین  \nموجودیتهای مشخص شده در متون است، یک زیر مساله رایج است. هدف اس"
+          },
+          {
+            "source": "چکیده فارسی.pdf",
+            "parent_id": "چکیده فارسی_parent_0",
+            "score": 0.7,
+            "text": "استفاده میکنند، رویکردهای خط لوله نامیده میشوند. روابط را میتوان بین دو یا بیش از دو موجودیت نشان داد که به ترتیب به  \nعنوان روابط دودویی و روابط چندتایی شناخته میشوند. در این پایان نامه، تحقیقات ما به روابط دودویی با استفاده از رویکردهای  \nخط لوله محدود میشود.  \nواژههای کلیدی: استخراج اطلاعات، استخ"
+          },
+          {
+            "source": "چکیده فارسی.pdf",
+            "parent_id": "چکیده فارسی_parent_0",
+            "score": 0.5833333333333333,
+            "text": "است که میتوانند اطلاعات ساختاریافته و رابطهای را از منابع بدون ساختار مانند متن زبان طبیعی شناسایی و استخراج کنند.  \nتخصیص یک برچسب رابطه به یک جفت موجودیت میتواند یک مساله دستهبندی در نظر گرفته شود. در نتیجه میتوان از  \nروشهای یادگیری ماشینی نظارت شده استفاده کرد. قبل از استخراج روابط از متن پردازش"
+          }
+        ],
+        "top_chunk_preview": "استخراج اطلاعات به فرآیند استخراج خودکار دادههای ساختاریافته از منابع بدون ساختار برای امکان استفاده از چنین اطلاعاتی\nتوسط برنامههای کاربردی دیگر اشاره دارد. استخراج روابط از منابع متنی، که به دنبال کشف رابطه معنایی نشان داده شده بین\nموجودیتهای مشخص ",
+        "latency_s": 0.406
+      },
+      "answer_b_original_query": {
+        "answer": "استخراج رابطه یک زیرمسئله رایج است که هدف آن کشف رابطه معنایی نشان داده شده بین موجودیت‌های مشخص شده در متون از منابع متنی است. این فرآیند می‌تواند اطلاعات ساختاریافته و روابط را از منابع بدون ساختار مانند متن زبان طبیعی شناسایی و استخراج کند.\n\nروابط می‌توانند بین دو یا بیش از دو موجودیت نشان داده شوند که به ترتیب به عنوان روابط دودویی و روابط چندتایی شناخته می‌شوند. هدف استخراج رابطه، توسعه استخراج‌کننده‌های خودکار است.\n\nدر منابع بازیابی‌شده اطلاعات کافی برای توضیح نقش یادگیری انتقالی وجود ندارد.\n\n---\n**منابع:**\nچکیده فارسی.pdf",
+        "metrics": {
+          "source_hit": true,
+          "passage_recall": false,
+          "must_contain_pass": true,
+          "must_contain_missing": [],
+          "forbidden_violation": false,
+          "forbidden_hits": [],
+          "abstention_like": null,
+          "semantic_similarity": null,
+          "retrieved_count": 3,
+          "passed": false,
+          "failure_class": "retrieval_miss"
+        },
+        "latency_s": 16.88
+      },
+      "ab_comparison": {
+        "retrieval_passage_recall_delta": 0,
+        "top_score_delta": 0.25,
+        "pass_rate_a": false,
+        "pass_rate_b_grounded_only": false,
+        "rewrite_caused_retrieval_regression": false,
+        "rewrite_caused_answer_regression": false,
+        "likely_rewrite_root_cause": true
+      }
+    }
+  ]
+}
