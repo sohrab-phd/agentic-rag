@@ -16,6 +16,7 @@ class State(MessagesState):
     conversation_summary: str = ""
     originalQuery: str = "" 
     rewrittenQuestions: List[str] = []
+    rewrite_audit: dict = {}
     agent_answers: Annotated[List[dict], accumulate_or_reset] = []
 
 class AgentState(MessagesState):

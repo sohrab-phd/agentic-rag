@@ -4,6 +4,7 @@ from langgraph.types import Command
 from .graph_state import State, AgentState
 from .schemas import QueryAnalysis
 from .prompts import *
+from .rewrite_guard import apply_rewrite_guard
 from utils import estimate_context_tokens
 from config import BASE_TOKEN_THRESHOLD, TOKEN_GROWTH_FACTOR
 import locale_fa as L
@@ -78,7 +79,14 @@ def rewrite_query(state: State, llm):
 
     if response.questions and response.is_clear:
         delete_all = [RemoveMessage(id=m.id) for m in state["messages"] if not isinstance(m, SystemMessage)]
-        return {"questionIsClear": True, "messages": delete_all, "originalQuery": last_message.content, "rewrittenQuestions": response.questions}
+        final_questions, rewrite_audit = apply_rewrite_guard(last_message.content, response.questions)
+        return {
+            "questionIsClear": True,
+            "messages": delete_all,
+            "originalQuery": last_message.content,
+            "rewrittenQuestions": final_questions,
+            "rewrite_audit": rewrite_audit,
+        }
 
     clarification = response.clarification_needed if response.clarification_needed and len(response.clarification_needed.strip()) > 10 else L.CLARIFICATION_FALLBACK
     return {"questionIsClear": False, "messages": [AIMessage(content=clarification)]}

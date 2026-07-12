@@ -1,0 +1,410 @@
+{
+  "baseline_pass_rate": 0.567,
+  "after_pass_rate": 0.567,
+  "baseline_passed": 17,
+  "after_passed": 17,
+  "pass_rate_delta": 0.0,
+  "baseline_doc_relevance": 0.693,
+  "after_doc_relevance": 0.736,
+  "baseline_avg_latency": 106.2,
+  "after_avg_latency": 85.51,
+  "rewrite_fallbacks_triggered": 21,
+  "improved_cases": [
+    "golestan_direct_010",
+    "multi_001"
+  ],
+  "regressed_cases": [
+    "golestan_para_004",
+    "chekideh_003"
+  ],
+  "prevented_drift_examples": [
+    {
+      "id": "golestan_direct_000",
+      "original": "مشکل فنی سامانه گلستان را به چه کسی باید گزارش داد؟",
+      "proposed": [
+        "برای گزارش مشکل فنی در سامانه گلستان، باید به چه کسی مراجعه کرد؟"
+      ],
+      "final": [
+        "مشکل فنی سامانه گلستان را به چه کسی باید گزارش داد؟"
+      ],
+      "reasons": [
+        "missing_entities:کسی باید گزارش داد؟"
+      ]
+    },
+    {
+      "id": "golestan_direct_002",
+      "original": "چگونه وارد سامانه گلستان شویم؟",
+      "proposed": [
+        "مراحل ورود به سامانه گلستان چیست؟"
+      ],
+      "final": [
+        "چگونه وارد سامانه گلستان شویم؟"
+      ],
+      "reasons": [
+        "question_type_drift:چگونه",
+        "missing_entities:چگونه وارد سامانه گلستان",
+        "missing_keywords:وارد,شویم"
+      ]
+    },
+    {
+      "id": "golestan_direct_006",
+      "original": "چرا سایت گلستان باز نمیشود؟",
+      "proposed": [
+        "دلیل عدم دسترسی یا باز نشدن سامانه گلستان چیست؟"
+      ],
+      "final": [
+        "چرا سایت گلستان باز نمیشود؟"
+      ],
+      "reasons": [
+        "question_type_drift:چرا",
+        "missing_entities:چرا سایت گلستان باز,نمیشود",
+        "missing_keywords:سایت"
+      ]
+    },
+    {
+      "id": "golestan_direct_008",
+      "original": "انتخاب واحد از کدام بخش انجام میشود؟",
+      "proposed": [
+        "مراحل انتخاب واحد در سامانه گلستان چیست؟"
+      ],
+      "final": [
+        "انتخاب واحد از کدام بخش انجام میشود؟"
+      ],
+      "reasons": [
+        "location_to_process_drift",
+        "missing_entities:کدام بخش انجام میشود؟",
+        "missing_keywords:انجام,میشود,کدام"
+      ]
+    },
+    {
+      "id": "golestan_direct_010",
+      "original": "ثبت نهایی انتخاب واحد یعنی چه؟",
+      "proposed": [
+        "ثبت نهایی انتخاب واحد چیست؟"
+      ],
+      "final": [
+        "ثبت نهایی انتخاب واحد یعنی چه؟"
+      ],
+      "reasons": [
+        "missing_entities:یعنی چه؟",
+        "missing_keywords:یعنی"
+      ]
+    },
+    {
+      "id": "golestan_direct_012",
+      "original": "چرا بعضی دروس نمایش داده نمیشود؟",
+      "proposed": [
+        "دلیل عدم نمایش برخی دروس چیست؟"
+      ],
+      "final": [
+        "چرا بعضی دروس نمایش داده نمیشود؟"
+      ],
+      "reasons": [
+        "question_type_drift:چرا",
+        "missing_entities:چرا بعضی دروس نمایش,داده نمیشود؟,نمیشود",
+        "missing_keywords:بعضی,داده"
+      ]
+    },
+    {
+      "id": "golestan_direct_014",
+      "original": "همنیاز دروس یعنی چه؟",
+      "proposed": [
+        "معنی همنیاز در زمینه دروس چیست؟"
+      ],
+      "final": [
+        "همنیاز دروس یعنی چه؟"
+      ],
+      "reasons": [
+        "missing_keywords:یعنی"
+      ]
+    },
+    {
+      "id": "golestan_direct_016",
+      "original": "تداخل دروس یعنی چه؟",
+      "proposed": [
+        "تداخل دروس چیست؟"
+      ],
+      "final": [
+        "تداخل دروس یعنی چه؟"
+      ],
+      "reasons": [
+        "missing_keywords:یعنی"
+      ]
+    },
+    {
+      "id": "golestan_para_001",
+      "original": "اولین بار که وارد گلستان می‌شوم، رمزم چیست؟",
+      "proposed": [
+        "رمز ورود اولیه برای اولین استفاده از سامانه گلستان چیست؟"
+      ],
+      "final": [
+        "اولین بار که وارد گلستان می‌شوم، رمزم چیست؟"
+      ],
+      "reasons": [
+        "missing_entities:شوم، رمزم چیست؟,وارد گلستان,اولین بار",
+        "missing_keywords:وارد,رمزم"
+      ]
+    },
+    {
+      "id": "golestan_para_002",
+      "original": "سیستم به من اجازه ثبت‌نام دروس را نمی‌دهد؛ دلیلش چیست؟",
+      "proposed": [
+        "چرا سیستم اجازه ثبت‌نام در دروس را برای من نمی‌دهد؟"
+      ],
+      "final": [
+        "سیستم به من اجازه ثبت‌نام دروس را نمی‌دهد؛ دلیلش چیست؟"
+      ],
+      "reasons": [
+        "question_type_drift:چیست",
+        "missing_entities:نمی دهد؛ دلیلش چیست؟",
+        "missing_keywords:دلیلش,دهد؛"
+      ]
+    },
+    {
+      "id": "golestan_para_003",
+      "original": "مسیر ثبت‌نام دروس در گلستان کجاست؟",
+      "proposed": [
+        "مسیر ثبت‌نام دروس در سامانه گلستان چیست؟"
+      ],
+      "final": [
+        "مسیر ثبت‌نام دروس در گلستان کجاست؟"
+      ],
+      "reasons": [
+        "question_type_drift:کجاست",
+        "missing_entities:گلستان کجاست؟"
+      ]
+    },
+    {
+      "id": "golestan_para_004",
+      "original": "اگر پسورد گلستان را یادم رفت چه کار کنم؟",
+      "proposed": [
+        "در صورت فراموشی پسورد سامانه گلستان، مراحل بازیابی یا بازنشانی چگونه است؟"
+      ],
+      "final": [
+        "اگر پسورد گلستان را یادم رفت چه کار کنم؟"
+      ],
+      "reasons": [
+        "missing_entities:اگر پسورد گلستان,یادم رفت,کار کنم؟",
+        "missing_keywords:یادم"
+      ]
+    },
+    {
+      "id": "golestan_para_005",
+      "original": "حداکثر تعداد واحد مجاز برای کارشناسی چقدر است؟",
+      "proposed": [
+        "حداکثر تعداد واحدهای مجاز برای رشته کارشناسی چقدر است؟"
+      ],
+      "final": [
+        "حداکثر تعداد واحد مجاز برای کارشناسی چقدر است؟"
+      ],
+      "reasons": [
+        "missing_entities:حداکثر تعداد واحد مجاز"
+      ]
+    },
+    {
+      "id": "chekideh_001",
+      "original": "استخراج رابطه از متن چیست و چه کاربردی دارد؟",
+      "proposed": [
+        "استخراج رابطه از متن چیست؟",
+        "کاربرد استخراج رابطه در متن چیست؟"
+      ],
+      "final": [
+        "استخراج رابطه از متن چیست و چه کاربردی دارد؟"
+      ],
+      "reasons": []
+    },
+    {
+      "id": "chekideh_002",
+      "original": "یادگیری انتقالی در این پایان‌نامه چه نقشی دارد؟",
+      "proposed": [
+        "نقش یادگیری انتقالی (Transfer Learning) در این پایان‌نامه چیست؟"
+      ],
+      "final": [
+        "یادگیری انتقالی در این پایان‌نامه چه نقشی دارد؟"
+      ],
+      "reasons": [
+        "missing_entities:نقشی دارد؟",
+        "missing_keywords:دارد"
+      ]
+    },
+    {
+      "id": "chekideh_005",
+      "original": "رویکرد خط لوله در استخراج رابطه یعنی چه؟",
+      "proposed": [
+        "رویکرد خط لوله (Pipeline) در استخراج رابطه چیست؟"
+      ],
+      "final": [
+        "رویکرد خط لوله در استخراج رابطه یعنی چه؟"
+      ],
+      "reasons": [
+        "missing_entities:استخراج رابطه یعنی چه؟",
+        "missing_keywords:یعنی"
+      ]
+    },
+    {
+      "id": "unans_003",
+      "original": "چگونه ویزای دانشجویی بگیرم؟",
+      "proposed": [
+        "مراحل دریافت ویزای دانشجویی چیست؟"
+      ],
+      "final": [
+        "چگونه ویزای دانشجویی بگیرم؟"
+      ],
+      "reasons": [
+        "question_type_drift:چگونه",
+        "missing_keywords:بگیرم"
+      ]
+    },
+    {
+      "id": "adv_001",
+      "original": "برای درمان سرماخوردگی چه دارویی بخورم؟",
+      "proposed": [
+        "چه داروهایی برای درمان سرماخوردگی مناسب هستند؟"
+      ],
+      "final": [
+        "برای درمان سرماخوردگی چه دارویی بخورم؟"
+      ],
+      "reasons": [
+        "missing_entities:دارویی بخورم؟,دارویی",
+        "missing_keywords:بخورم"
+      ]
+    },
+    {
+      "id": "adv_002",
+      "original": "بهترین شبکه اجتماعی برای دانشجویان کدام است؟",
+      "proposed": [
+        "بهترین شبکه‌های اجتماعی برای دانشجویان کدام هستند؟"
+      ],
+      "final": [
+        "بهترین شبکه اجتماعی برای دانشجویان کدام است؟"
+      ],
+      "reasons": [
+        "missing_entities:دانشجویان کدام است؟"
+      ]
+    },
+    {
+      "id": "multi_001",
+      "original": "رمز اولیه گلستان چیست و اگر فراموش کنم چه کنم؟",
+      "proposed": [
+        "رمز اولیه سامانه گلستان چیست؟",
+        "اگر رمز اولیه سامانه گلستان را فراموش کردم، چگونه آن را بازیابی یا تغییر دهم؟"
+      ],
+      "final": [
+        "رمز اولیه گلستان چیست و اگر فراموش کنم چه کنم؟"
+      ],
+      "reasons": []
+    }
+  ],
+  "by_category_before": {
+    "direct": {
+      "total": 10,
+      "passed": 7,
+      "pass_rate": 0.7,
+      "avg_latency_s": 69.79,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.8,
+      "must_contain_rate": 0.9
+    },
+    "paraphrase": {
+      "total": 5,
+      "passed": 1,
+      "pass_rate": 0.2,
+      "avg_latency_s": 110.79,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.4,
+      "must_contain_rate": 0.4
+    },
+    "academic": {
+      "total": 5,
+      "passed": 1,
+      "pass_rate": 0.2,
+      "avg_latency_s": 170.72,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.4,
+      "must_contain_rate": 0.4
+    },
+    "unanswerable": {
+      "total": 5,
+      "passed": 5,
+      "pass_rate": 1.0,
+      "avg_latency_s": 80.98,
+      "source_hit_rate": null,
+      "passage_recall_rate": null,
+      "must_contain_rate": null
+    },
+    "adversarial": {
+      "total": 3,
+      "passed": 3,
+      "pass_rate": 1.0,
+      "avg_latency_s": 112.7,
+      "source_hit_rate": null,
+      "passage_recall_rate": null,
+      "must_contain_rate": null
+    },
+    "multi_intent": {
+      "total": 2,
+      "passed": 0,
+      "pass_rate": 0.0,
+      "avg_latency_s": 168.85,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.5,
+      "must_contain_rate": 0.0
+    }
+  },
+  "by_category_after": {
+    "direct": {
+      "total": 10,
+      "passed": 8,
+      "pass_rate": 0.8,
+      "avg_latency_s": 57.34,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.8,
+      "must_contain_rate": 1.0
+    },
+    "paraphrase": {
+      "total": 5,
+      "passed": 0,
+      "pass_rate": 0.0,
+      "avg_latency_s": 73.37,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.4,
+      "must_contain_rate": 0.6
+    },
+    "academic": {
+      "total": 5,
+      "passed": 0,
+      "pass_rate": 0.0,
+      "avg_latency_s": 118.29,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.0,
+      "must_contain_rate": 0.8
+    },
+    "unanswerable": {
+      "total": 5,
+      "passed": 5,
+      "pass_rate": 1.0,
+      "avg_latency_s": 103.83,
+      "source_hit_rate": null,
+      "passage_recall_rate": null,
+      "must_contain_rate": null
+    },
+    "adversarial": {
+      "total": 3,
+      "passed": 3,
+      "pass_rate": 1.0,
+      "avg_latency_s": 89.18,
+      "source_hit_rate": null,
+      "passage_recall_rate": null,
+      "must_contain_rate": null
+    },
+    "multi_intent": {
+      "total": 2,
+      "passed": 1,
+      "pass_rate": 0.5,
+      "avg_latency_s": 123.5,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.5,
+      "must_contain_rate": 0.5
+    }
+  }
+}

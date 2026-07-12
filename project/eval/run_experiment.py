@@ -143,6 +143,7 @@ def run_experiment(
             "category": gold["category"],
             "question": q,
             "rewritten_questions": rewritten,
+            "rewrite_audit": state.get("rewrite_audit", {}),
             "search_query_used": search_q,
             "latency_s": round(elapsed, 2),
             "error": error,
