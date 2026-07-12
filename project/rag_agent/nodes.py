@@ -196,9 +196,22 @@ def collect_answer(state: AgentState):
     }
 # --- End of Agent Nodes---
 
+def after_agents(state: State):
+    """Fan-in sink: runs once all parallel agent subgraphs complete."""
+    return {}
+
+
+def passthrough_single_answer(state: State):
+    answers = state.get("agent_answers", [])
+    if not answers:
+        return {"messages": [AIMessage(content=L.NO_ANSWERS_GENERATED)], "aggregation_ran": False}
+    answer = sorted(answers, key=lambda x: x.get("index", 0))[0]["answer"]
+    return {"messages": [AIMessage(content=answer)], "aggregation_ran": False}
+
+
 def aggregate_answers(state: State, llm):
     if not state.get("agent_answers"):
-        return {"messages": [AIMessage(content=L.NO_ANSWERS_GENERATED)]}
+        return {"messages": [AIMessage(content=L.NO_ANSWERS_GENERATED)], "aggregation_ran": True}
 
     sorted_answers = sorted(state["agent_answers"], key=lambda x: x["index"])
 
@@ -211,4 +224,4 @@ def aggregate_answers(state: State, llm):
         answers=formatted_answers,
     ))
     synthesis_response = llm.invoke([SystemMessage(content=get_aggregation_prompt()), user_message])
-    return {"messages": [AIMessage(content=synthesis_response.content)]}
+    return {"messages": [AIMessage(content=synthesis_response.content)], "aggregation_ran": True}

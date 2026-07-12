@@ -144,6 +144,8 @@ def run_experiment(
             "question": q,
             "rewritten_questions": rewritten,
             "rewrite_audit": state.get("rewrite_audit", {}),
+            "aggregation_ran": state.get("aggregation_ran", False),
+            "agent_answer_count": len(state.get("agent_answers", [])),
             "search_query_used": search_q,
             "latency_s": round(elapsed, 2),
             "error": error,

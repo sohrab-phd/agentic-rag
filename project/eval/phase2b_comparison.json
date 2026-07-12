@@ -1,0 +1,167 @@
+{
+  "before_source": "results_phase1a_rewrite_hardening.json",
+  "after_source": "results_phase2b.json",
+  "comparison": {
+    "pass_rate": {
+      "before": 0.567,
+      "after": 0.567,
+      "delta": 0.0
+    },
+    "passed_count": {
+      "before": 17,
+      "after": 17,
+      "delta": 0
+    },
+    "avg_latency_s": {
+      "before": 85.51,
+      "after": 66.43,
+      "delta": -19.08
+    },
+    "aggregation_invocations": {
+      "before": 30,
+      "after": 1,
+      "delta": -29
+    },
+    "aggregation_bypassed": 29,
+    "aggregation_induced_failures": {
+      "before": 1,
+      "after": 0,
+      "delta": -1
+    }
+  },
+  "improved_cases": [],
+  "regressed_cases": [],
+  "golestan_direct_010": {
+    "before_passed": true,
+    "after_passed": true,
+    "after_aggregation_ran": false
+  },
+  "multi_intent": [
+    {
+      "id": "multi_001",
+      "agent_answer_count": 1,
+      "aggregation_ran": false,
+      "before_passed": true,
+      "after_passed": true
+    },
+    {
+      "id": "multi_002",
+      "agent_answer_count": 2,
+      "aggregation_ran": true,
+      "before_passed": false,
+      "after_passed": false
+    }
+  ],
+  "by_category_before": {
+    "direct": {
+      "total": 10,
+      "passed": 8,
+      "pass_rate": 0.8,
+      "avg_latency_s": 57.34,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.8,
+      "must_contain_rate": 1.0
+    },
+    "paraphrase": {
+      "total": 5,
+      "passed": 0,
+      "pass_rate": 0.0,
+      "avg_latency_s": 73.37,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.4,
+      "must_contain_rate": 0.6
+    },
+    "academic": {
+      "total": 5,
+      "passed": 0,
+      "pass_rate": 0.0,
+      "avg_latency_s": 118.29,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.0,
+      "must_contain_rate": 0.8
+    },
+    "unanswerable": {
+      "total": 5,
+      "passed": 5,
+      "pass_rate": 1.0,
+      "avg_latency_s": 103.83,
+      "source_hit_rate": null,
+      "passage_recall_rate": null,
+      "must_contain_rate": null
+    },
+    "adversarial": {
+      "total": 3,
+      "passed": 3,
+      "pass_rate": 1.0,
+      "avg_latency_s": 89.18,
+      "source_hit_rate": null,
+      "passage_recall_rate": null,
+      "must_contain_rate": null
+    },
+    "multi_intent": {
+      "total": 2,
+      "passed": 1,
+      "pass_rate": 0.5,
+      "avg_latency_s": 123.5,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.5,
+      "must_contain_rate": 0.5
+    }
+  },
+  "by_category_after": {
+    "direct": {
+      "total": 10,
+      "passed": 8,
+      "pass_rate": 0.8,
+      "avg_latency_s": 33.91,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.8,
+      "must_contain_rate": 1.0
+    },
+    "paraphrase": {
+      "total": 5,
+      "passed": 0,
+      "pass_rate": 0.0,
+      "avg_latency_s": 71.22,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.4,
+      "must_contain_rate": 0.6
+    },
+    "academic": {
+      "total": 5,
+      "passed": 0,
+      "pass_rate": 0.0,
+      "avg_latency_s": 100.09,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.0,
+      "must_contain_rate": 0.8
+    },
+    "unanswerable": {
+      "total": 5,
+      "passed": 5,
+      "pass_rate": 1.0,
+      "avg_latency_s": 85.34,
+      "source_hit_rate": null,
+      "passage_recall_rate": null,
+      "must_contain_rate": null
+    },
+    "adversarial": {
+      "total": 3,
+      "passed": 3,
+      "pass_rate": 1.0,
+      "avg_latency_s": 75.84,
+      "source_hit_rate": null,
+      "passage_recall_rate": null,
+      "must_contain_rate": null
+    },
+    "multi_intent": {
+      "total": 2,
+      "passed": 1,
+      "pass_rate": 0.5,
+      "avg_latency_s": 71.55,
+      "source_hit_rate": 1.0,
+      "passage_recall_rate": 0.5,
+      "must_contain_rate": 0.5
+    }
+  }
+}

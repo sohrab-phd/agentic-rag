@@ -4,6 +4,9 @@ from langchain_core.messages import HumanMessage, AIMessageChunk, ToolMessage
 
 SILENT_NODES = {"rewrite_query"}
 SYSTEM_NODES = {"summarize_history", "rewrite_query"}
+# Nodes that place the final answer into state without an LLM call (no token
+# stream), so their message must be rendered from the "updates" stream instead.
+DIRECT_ANSWER_NODES = {"passthrough_single_answer"}
 
 SYSTEM_NODE_CONFIG = {
     "rewrite_query":     {"title": "🔍 Query Analysis & Rewriting"},
@@ -109,6 +112,19 @@ class ChatInterface:
             response_messages.append(make_message(""))
         response_messages[-1]["content"] += chunk.content
 
+    def _handle_final_answer_update(self, update, response_messages):
+        """Render the final answer for nodes that emit it without an LLM call.
+
+        The single-answer bypass returns the grounded answer directly (no LLM
+        invocation), so it never appears in the token stream. Surface it here.
+        """
+        messages = update.get("messages") if isinstance(update, dict) else None
+        if not messages:
+            return
+        content = getattr(messages[-1], "content", "")
+        if content:
+            response_messages.append(make_message(content))
+
     def chat(self, message, history):
         """Generator that streams Gradio chat message dicts."""
         if not self.rag_system.agent_graph:
@@ -129,7 +145,17 @@ class ChatInterface:
             active_tool_calls  = {}
             system_node_buffer = {}
 
-            for chunk, metadata in self.rag_system.agent_graph.stream(stream_input, config=config, stream_mode="messages"):
+            for stream_mode, payload in self.rag_system.agent_graph.stream(
+                stream_input, config=config, stream_mode=["messages", "updates"]
+            ):
+                if stream_mode == "updates":
+                    for node, update in payload.items():
+                        if node in DIRECT_ANSWER_NODES:
+                            self._handle_final_answer_update(update, response_messages)
+                    yield response_messages
+                    continue
+
+                chunk, metadata = payload
                 node = metadata.get("langgraph_node", "")
 
                 if node in SYSTEM_NODES and isinstance(chunk, AIMessageChunk) and chunk.content:

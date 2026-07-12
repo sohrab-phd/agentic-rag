@@ -46,13 +46,24 @@ def create_agent_graph(llm, tools_list):
     graph_builder.add_node("rewrite_query", partial(rewrite_query, llm=llm))
     graph_builder.add_node(request_clarification)
     graph_builder.add_node("agent", agent_subgraph)
+    graph_builder.add_node("after_agents", after_agents)
+    graph_builder.add_node("passthrough_single_answer", passthrough_single_answer)
     graph_builder.add_node("aggregate_answers", partial(aggregate_answers, llm=llm))
 
     graph_builder.add_edge(START, "summarize_history")
     graph_builder.add_edge("summarize_history", "rewrite_query")
     graph_builder.add_conditional_edges("rewrite_query", route_after_rewrite)
     graph_builder.add_edge("request_clarification", "rewrite_query")
-    graph_builder.add_edge(["agent"], "aggregate_answers")
+    graph_builder.add_edge(["agent"], "after_agents")
+    graph_builder.add_conditional_edges(
+        "after_agents",
+        route_after_agents,
+        {
+            "passthrough_single_answer": "passthrough_single_answer",
+            "aggregate_answers": "aggregate_answers",
+        },
+    )
+    graph_builder.add_edge("passthrough_single_answer", END)
     graph_builder.add_edge("aggregate_answers", END)
 
     agent_graph = graph_builder.compile(checkpointer=checkpointer, interrupt_before=["request_clarification"])

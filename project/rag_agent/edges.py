@@ -12,6 +12,12 @@ def route_after_rewrite(state: State) -> Literal["request_clarification", "agent
                 for idx, query in enumerate(state["rewrittenQuestions"])
             ]
     
+def route_after_agents(state: State) -> Literal["passthrough_single_answer", "aggregate_answers"]:
+    if len(state.get("agent_answers", [])) == 1:
+        return "passthrough_single_answer"
+    return "aggregate_answers"
+
+
 def route_after_orchestrator_call(state: AgentState) -> Literal["tools", "fallback_response", "generate_grounded_answer"]:
     iteration = state.get("iteration_count", 0)
     tool_count = state.get("tool_call_count", 0)

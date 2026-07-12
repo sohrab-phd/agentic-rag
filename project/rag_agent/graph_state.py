@@ -18,6 +18,7 @@ class State(MessagesState):
     rewrittenQuestions: List[str] = []
     rewrite_audit: dict = {}
     agent_answers: Annotated[List[dict], accumulate_or_reset] = []
+    aggregation_ran: bool = False
 
 class AgentState(MessagesState):
     """State for individual agent subgraph"""
