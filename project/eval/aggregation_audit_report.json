@@ -1,0 +1,1683 @@
+{
+  "timestamp_utc": "2026-07-12T10:56:48.722284+00:00",
+  "benchmark_source": "results_phase1a_rewrite_hardening.json",
+  "summary": {
+    "total": 30,
+    "failed_final_answerable": 14,
+    "failures_introduced_by_aggregation": 1,
+    "failures_fixed_by_aggregation": 0,
+    "failures_preexisted_before_aggregation": 13,
+    "information_loss_rate": 0.033,
+    "avg_aggregation_latency_s": 10.14,
+    "avg_pipeline_latency_s": 75.85,
+    "aggregation_latency_pct_of_pipeline": 13.4,
+    "single_answer_count": 29,
+    "single_answer_aggregation_identical": 28,
+    "single_answer_aggregation_changed": 1,
+    "multi_intent_count": 1,
+    "by_category": {
+      "direct": {
+        "count": 10,
+        "introduced_by_aggregation": 1,
+        "information_lost": 1,
+        "avg_agg_latency_s": 10.66
+      },
+      "paraphrase": {
+        "count": 5,
+        "introduced_by_aggregation": 0,
+        "information_lost": 0,
+        "avg_agg_latency_s": 10.81
+      },
+      "academic": {
+        "count": 5,
+        "introduced_by_aggregation": 0,
+        "information_lost": 0,
+        "avg_agg_latency_s": 11.28
+      },
+      "unanswerable": {
+        "count": 5,
+        "introduced_by_aggregation": 0,
+        "information_lost": 0,
+        "avg_agg_latency_s": 7.72
+      },
+      "adversarial": {
+        "count": 3,
+        "introduced_by_aggregation": 0,
+        "information_lost": 0,
+        "avg_agg_latency_s": 6.95
+      },
+      "multi_intent": {
+        "count": 2,
+        "introduced_by_aggregation": 0,
+        "information_lost": 0,
+        "avg_agg_latency_s": 13.86
+      }
+    },
+    "introduced_case_ids": [
+      "golestan_direct_010"
+    ],
+    "fixed_case_ids": []
+  },
+  "items": [
+    {
+      "id": "golestan_direct_000",
+      "category": "direct",
+      "original_question": "مشکل فنی سامانه گلستان را به چه کسی باید گزارش داد؟",
+      "rewritten_questions": [
+        "مشکل فنی سامانه گلستان را به چه کسی باید گزارش داد؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "مشکل فنی سامانه گلستان را به چه کسی باید گزارش داد؟",
+        "proposed_rewrites": [
+          "برای گزارش مشکل فنی در سامانه گلستان، باید به چه کسی مراجعه کرد؟"
+        ],
+        "final_rewrites": [
+          "مشکل فنی سامانه گلستان را به چه کسی باید گزارش داد؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "missing_entities:کسی باید گزارش داد؟"
+        ],
+        "issues": [
+          "missing_entities:کسی باید گزارش داد؟"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "مشکل فنی سامانه گلستان را به چه کسی باید گزارش داد؟",
+          "answer": "مشکل‌های فنی سامانه گلستان باید به ادمین سامانه گلستان دانشگاه گزارش شود؛ در حال حاضر آقای کیانی مسئولیت ادمین این سامانه را بر عهده دارد.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "مشکل‌های فنی سامانه گلستان باید به ادمین سامانه گلستان دانشگاه گزارش شود؛ در حال حاضر آقای کیانی مسئولیت ادمین این سامانه را بر عهده دارد.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "مشکل‌های فنی سامانه گلستان باید به ادمین سامانه گلستان دانشگاه گزارش شود؛ در حال حاضر آقای کیانی مسئولیت ادمین این سامانه را بر عهده دارد.\n\n---\n**منابع:**\n*   سامانه گلستان.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 11.39,
+      "pipeline_latency_s": 52.8,
+      "pre_failure_class": "ok",
+      "final_failure_class": "ok"
+    },
+    {
+      "id": "golestan_direct_002",
+      "category": "direct",
+      "original_question": "چگونه وارد سامانه گلستان شویم؟",
+      "rewritten_questions": [
+        "چگونه وارد سامانه گلستان شویم؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "چگونه وارد سامانه گلستان شویم؟",
+        "proposed_rewrites": [
+          "مراحل ورود به سامانه گلستان چیست؟"
+        ],
+        "final_rewrites": [
+          "چگونه وارد سامانه گلستان شویم؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "question_type_drift:چگونه",
+          "missing_entities:چگونه وارد سامانه گلستان",
+          "missing_keywords:وارد,شویم"
+        ],
+        "issues": [
+          "missing_entities:چگونه وارد سامانه گلستان",
+          "missing_keywords:وارد",
+          "missing_keywords:شویم",
+          "question_type_drift:چگونه",
+          "missing_keywords:وارد,شویم"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 1,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "چگونه وارد سامانه گلستان شویم؟",
+          "answer": "برای ورود به سامانه گلستان، می‌توانید از طریق سایت دانشگاه وارد بخش «دانشگاه من» شوید یا مستقیماً آدرس سامانه گلستان دانشگاه را استفاده کنید.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "برای ورود به سامانه گلستان، می‌توانید از طریق سایت دانشگاه وارد بخش «دانشگاه من» شوید یا مستقیماً آدرس سامانه گلستان دانشگاه را استفاده کنید.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "برای ورود به سامانه گلستان، می‌توانید از طریق سایت دانشگاه وارد بخش «دانشگاه من» شوید یا مستقیماً آدرس سامانه گلستان مربوط به آن دانشگاه را استفاده کنید.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 7.83,
+      "pipeline_latency_s": 39.62,
+      "pre_failure_class": "ok",
+      "final_failure_class": "ok"
+    },
+    {
+      "id": "golestan_direct_004",
+      "category": "direct",
+      "original_question": "رمز عبور اولیه گلستان چیست؟",
+      "rewritten_questions": [
+        "رمز عبور اولیه سامانه گلستان چیست؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "رمز عبور اولیه گلستان چیست؟",
+        "proposed_rewrites": [
+          "رمز عبور اولیه سامانه گلستان چیست؟"
+        ],
+        "final_rewrites": [
+          "رمز عبور اولیه سامانه گلستان چیست؟"
+        ],
+        "validation_passed": true,
+        "fallback_triggered": false,
+        "failure_reasons": [],
+        "issues": [],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 3,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "رمز عبور اولیه سامانه گلستان چیست؟",
+          "answer": "رمز عبور اولیه سامانه گلستان به‌صورت پیش‌فرض کد ملی دانشجو است.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "رمز عبور اولیه سامانه گلستان به‌صورت پیش‌فرض کد ملی دانشجو است.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "رمز عبور اولیه سامانه گلستان به‌صورت پیش‌فرض کد ملی دانشجو است.\n\n---\n**منابع:**\n* سامانه گلستان.pdf",
+      "benchmark_passed": false,
+      "pre_aggregation_passed": false,
+      "final_passed": false,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": true,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 9.88,
+      "pipeline_latency_s": 44.7,
+      "pre_failure_class": "retrieval_miss",
+      "final_failure_class": "retrieval_miss"
+    },
+    {
+      "id": "golestan_direct_006",
+      "category": "direct",
+      "original_question": "چرا سایت گلستان باز نمیشود؟",
+      "rewritten_questions": [
+        "چرا سایت گلستان باز نمیشود؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "چرا سایت گلستان باز نمیشود؟",
+        "proposed_rewrites": [
+          "دلیل عدم دسترسی یا باز نشدن سامانه گلستان چیست؟"
+        ],
+        "final_rewrites": [
+          "چرا سایت گلستان باز نمیشود؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "question_type_drift:چرا",
+          "missing_entities:چرا سایت گلستان باز,نمیشود",
+          "missing_keywords:سایت"
+        ],
+        "issues": [
+          "missing_entities:چرا سایت گلستان باز",
+          "missing_entities:نمیشود",
+          "missing_keywords:سایت",
+          "question_type_drift:چرا",
+          "missing_entities:چرا سایت گلستان باز,نمیشود"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 3,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "چرا سایت گلستان باز نمیشود؟",
+          "answer": "دلایل رایج باز نشدن سایت گلستان عبارتند از موارد زیر:\n* استفاده از مرورگر نامناسب یا خطای امنیتی مرورگر.\n* تنظیمات مرورگر.\n* گواهی امنیتی سرور دانشگاه.\n* استفاده از شبکه یا NPV نامناسب.\n* ترافیک بالی سامانه در بازه‌های انتخاب واحد.\n* اختلال موقت سرور دانشگاه.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "دلایل رایج باز نشدن سایت گلستان عبارتند از موارد زیر:\n* استفاده از مرورگر نامناسب یا خطای امنیتی مرورگر.\n* تنظیمات مرورگر.\n* گواهی امنیتی سرور دانشگاه.\n* استفاده از شبکه یا NPV نامناسب.\n* ترافیک بالی سامانه در بازه‌های انتخاب واحد.\n* اختلال موقت سرور دانشگاه.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "دلایل رایج باز نشدن سایت گلستان شامل موارد زیر است: از سمت کاربر، ممکن است مشکل به دلیل استفاده از مرورگر نامناسب یا خطای امنیتی در خود مرورگر و همچنین تنظیمات مربوط به آن باشد. علاوه بر این، استفاده از شبکه یا NPV نامناسب نیز می‌تواند مانع دسترسی شود. از طرف سرورها و دانشگاه، دلایل احتمالی شامل گواهی امنیتی سرور دانشگاه، اختلال موقت سرور دانشگاه، یا ترافیک بالایی که در بازه‌های انتخاب واحد رخ می‌دهد، ذکر شده است.\n\n---\n**منابع:**\n* سامانه گلستان.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 14.42,
+      "pipeline_latency_s": 48.03,
+      "pre_failure_class": "ok",
+      "final_failure_class": "ok"
+    },
+    {
+      "id": "golestan_direct_008",
+      "category": "direct",
+      "original_question": "انتخاب واحد از کدام بخش انجام میشود؟",
+      "rewritten_questions": [
+        "انتخاب واحد از کدام بخش انجام میشود؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "انتخاب واحد از کدام بخش انجام میشود؟",
+        "proposed_rewrites": [
+          "مراحل انتخاب واحد در سامانه گلستان چیست؟"
+        ],
+        "final_rewrites": [
+          "انتخاب واحد از کدام بخش انجام میشود؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "location_to_process_drift",
+          "missing_entities:کدام بخش انجام میشود؟",
+          "missing_keywords:انجام,میشود,کدام"
+        ],
+        "issues": [
+          "missing_entities:کدام بخش انجام میشود؟",
+          "missing_keywords:انجام",
+          "missing_keywords:میشود",
+          "missing_keywords:کدام",
+          "location_to_process_drift",
+          "missing_keywords:انجام,میشود,کدام"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 3,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "انتخاب واحد از کدام بخش انجام میشود؟",
+          "answer": "انتخاب واحد از منوی ثبتنام، بخش پردازش ثبتنام اصلی انجام می‌شود و نام رسمی آن در سامانه «ثبتنام اصلی» است.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "انتخاب واحد از منوی ثبتنام، بخش پردازش ثبتنام اصلی انجام می‌شود و نام رسمی آن در سامانه «ثبتنام اصلی» است.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "انتخاب واحد از منوی ثبتنام، در بخش پردازش ثبتنام اصلی انجام می‌شود و نام رسمی این قسمت در سامانه «ثبتنام اصلی» است.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 10.21,
+      "pipeline_latency_s": 41.28,
+      "pre_failure_class": "ok",
+      "final_failure_class": "ok"
+    },
+    {
+      "id": "golestan_direct_010",
+      "category": "direct",
+      "original_question": "ثبت نهایی انتخاب واحد یعنی چه؟",
+      "rewritten_questions": [
+        "ثبت نهایی انتخاب واحد یعنی چه؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "ثبت نهایی انتخاب واحد یعنی چه؟",
+        "proposed_rewrites": [
+          "ثبت نهایی انتخاب واحد چیست؟"
+        ],
+        "final_rewrites": [
+          "ثبت نهایی انتخاب واحد یعنی چه؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "missing_entities:یعنی چه؟",
+          "missing_keywords:یعنی"
+        ],
+        "issues": [
+          "missing_entities:یعنی چه؟",
+          "missing_keywords:یعنی"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "ثبت نهایی انتخاب واحد یعنی چه؟",
+          "answer": "ثبت نهایی انتخاب واحد یعنی انتخاب واحد شما قطعی شده و در سیستم ثبت شده است.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "ثبت نهایی انتخاب واحد یعنی انتخاب واحد شما قطعی شده و در سیستم ثبت شده است.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "ثبت نهایی انتخاب واحد به این معناست که انتخاب واحدهای شما قطعی شده و در سیستم ثبت می‌گردد.\n\n---\n**منابع:**\n- سامانه گلستان.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": false,
+      "information_lost": true,
+      "information_lost_terms": [
+        "یعنی"
+      ],
+      "failure_introduced_by_aggregation": true,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 9.54,
+      "pipeline_latency_s": 38.06,
+      "pre_failure_class": "ok",
+      "final_failure_class": "generation_incomplete_or_wrong"
+    },
+    {
+      "id": "golestan_direct_012",
+      "category": "direct",
+      "original_question": "چرا بعضی دروس نمایش داده نمیشود؟",
+      "rewritten_questions": [
+        "چرا بعضی دروس نمایش داده نمیشود؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "چرا بعضی دروس نمایش داده نمیشود؟",
+        "proposed_rewrites": [
+          "دلیل عدم نمایش برخی دروس چیست؟"
+        ],
+        "final_rewrites": [
+          "چرا بعضی دروس نمایش داده نمیشود؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "question_type_drift:چرا",
+          "missing_entities:چرا بعضی دروس نمایش,داده نمیشود؟,نمیشود",
+          "missing_keywords:بعضی,داده"
+        ],
+        "issues": [
+          "missing_entities:چرا بعضی دروس نمایش",
+          "missing_entities:داده نمیشود؟",
+          "missing_entities:نمیشود",
+          "missing_keywords:بعضی",
+          "missing_keywords:داده",
+          "question_type_drift:چرا",
+          "missing_entities:چرا بعضی دروس نمایش,داده نمیشود؟,نمیشود",
+          "missing_keywords:بعضی,داده"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 4,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "چرا بعضی دروس نمایش داده نمیشود؟",
+          "answer": "در منابع بازیابی‌شده، دلایل عدم نمایش برخی دروس عبارتند از:\n* سیاست و محدودیت گروه آموزشی\n* ارائه درس فقط برای ورودی‌های خاص\n* رعایت نشدن پیشنیاز یا همنیاز\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "در منابع بازیابی‌شده، دلایل عدم نمایش برخی دروس عبارتند از:\n* سیاست و محدودیت گروه آموزشی\n* ارائه درس فقط برای ورودی‌های خاص\n* رعایت نشدن پیشنیاز یا همنیاز\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "دلایل عدم نمایش برخی دروس در سیستم، بر اساس منابع موجود، شامل موارد زیر است: سیاست و محدودیت‌های تعیین شده توسط گروه آموزشی مربوطه، ارائه درس تنها برای ورودی‌های خاص، یا عدم رعایت پیش‌نیازها و همنیازهای مورد نیاز.\n\n---\n**منابع:**\n* سامانه گلستان.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 11.5,
+      "pipeline_latency_s": 38.34,
+      "pre_failure_class": "ok",
+      "final_failure_class": "ok"
+    },
+    {
+      "id": "golestan_direct_014",
+      "category": "direct",
+      "original_question": "همنیاز دروس یعنی چه؟",
+      "rewritten_questions": [
+        "همنیاز دروس یعنی چه؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "همنیاز دروس یعنی چه؟",
+        "proposed_rewrites": [
+          "معنی همنیاز در زمینه دروس چیست؟"
+        ],
+        "final_rewrites": [
+          "همنیاز دروس یعنی چه؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "missing_keywords:یعنی"
+        ],
+        "issues": [
+          "missing_keywords:یعنی"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 3,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "همنیاز دروس یعنی چه؟",
+          "answer": "همنیاز دروس دروسی هستند که باید همزمان با یکدیگر اخذ شوند؛ برای مثال، ممکن است لازم باشد درس تئوری شیمی و آزمایشگاه شیمی همزمان در یک ترم اخذ شوند.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "همنیاز دروس دروسی هستند که باید همزمان با یکدیگر اخذ شوند؛ برای مثال، ممکن است لازم باشد درس تئوری شیمی و آزمایشگاه شیمی همزمان در یک ترم اخذ شوند.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "همنیاز دروس، دروسی هستند که باید همزمان با یکدیگر اخذ شوند؛ برای مثال، ممکن است لازم باشد درس تئوری شیمی و آزمایشگاه شیمی همزمان در یک ترم اخذ شوند.\n\n---\n**منابع:**\n* سامانه گلستان.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 9.2,
+      "pipeline_latency_s": 37.49,
+      "pre_failure_class": "ok",
+      "final_failure_class": "ok"
+    },
+    {
+      "id": "golestan_direct_016",
+      "category": "direct",
+      "original_question": "تداخل دروس یعنی چه؟",
+      "rewritten_questions": [
+        "تداخل دروس یعنی چه؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "تداخل دروس یعنی چه؟",
+        "proposed_rewrites": [
+          "تداخل دروس چیست؟"
+        ],
+        "final_rewrites": [
+          "تداخل دروس یعنی چه؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "missing_keywords:یعنی"
+        ],
+        "issues": [
+          "missing_keywords:یعنی"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "تداخل دروس یعنی چه؟",
+          "answer": "تداخل دروس به همپوشانی زمانی کلاس‌ها یا امتحانات دو درس گفته می‌شود. در صورتی که زمان تداخل بیشتر از ۳۰ دقیقه باشد، امکان اخذ هر دو مورد همزمان در یک ترم وجود ندارد.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "تداخل دروس به همپوشانی زمانی کلاس‌ها یا امتحانات دو درس گفته می‌شود. در صورتی که زمان تداخل بیشتر از ۳۰ دقیقه باشد، امکان اخذ هر دو مورد همزمان در یک ترم وجود ندارد.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "تداخل دروس به همپوشانی زمانی کلاس‌ها یا امتحانات دو درس گفته می‌شود. در صورتی که زمان تداخل بیشتر از ۳۰ دقیقه باشد، امکان اخذ هر دو مورد به‌صورت همزمان در یک ترم وجود ندارد.\n\n---\n**منابع:**\n* سامانه گلستان.pdf",
+      "benchmark_passed": false,
+      "pre_aggregation_passed": false,
+      "final_passed": false,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": true,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 10.29,
+      "pipeline_latency_s": 42.88,
+      "pre_failure_class": "retrieval_miss",
+      "final_failure_class": "retrieval_miss"
+    },
+    {
+      "id": "golestan_direct_020",
+      "category": "direct",
+      "original_question": "حذف اضطراری چیست؟",
+      "rewritten_questions": [
+        "حذف اضطراری چیست؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "حذف اضطراری چیست؟",
+        "proposed_rewrites": [
+          "حذف اضطراری چیست؟"
+        ],
+        "final_rewrites": [
+          "حذف اضطراری چیست؟"
+        ],
+        "validation_passed": true,
+        "fallback_triggered": false,
+        "failure_reasons": [],
+        "issues": [],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "حذف اضطراری چیست؟",
+          "answer": "حذف اضطراری عبارت است از حذف یک درس در طول ترم، که این عمل باید در بازه مشخص‌شده در تقویم آموزشی انجام شود و تا زمانی امکان‌پذیر است که طبق تقویم آموزشی هر نیمسال تعیین شده باشد.\n\nدر فرآیند حذف اضطراری:\n*   رکورد درس در سیستم باقی می‌ماند، اما نمره‌هایی برای آن ثبت نمی‌شود و دانشجو آن را ادامه نمی‌دهد.\n*   این عمل پس از تایید نهایی به هیچ وجه قابل برگشت نیست و یک فرآیند برگشتناپذیر محسوب می‌شود.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "حذف اضطراری عبارت است از حذف یک درس در طول ترم، که این عمل باید در بازه مشخص‌شده در تقویم آموزشی انجام شود و تا زمانی امکان‌پذیر است که طبق تقویم آموزشی هر نیمسال تعیین شده باشد.\n\nدر فرآیند حذف اضطراری:\n*   رکورد درس در سیستم باقی می‌ماند، اما نمره‌هایی برای آن ثبت نمی‌شود و دانشجو آن را ادامه نمی‌دهد.\n*   این عمل پس از تایید نهایی به هیچ وجه قابل برگشت نیست و یک فرآیند برگشتناپذیر محسوب می‌شود.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "حذف اضطراری به معنای حذف یک درس در طول ترم است که این اقدام باید در بازه مشخص‌شده‌ای از تقویم آموزشی و تا زمانی انجام شود که طبق برنامه هر نیمسال تعیین شده باشد.\n\nدر فرآیند حذف اضطراری، رکورد مربوط به آن درس همچنان در سیستم باقی می‌ماند؛ با این حال، نمره‌ای برای دانشجو ثبت نمی‌شود و او ادامه تحصیل در آن درس را انجام نمی‌دهد. لازم به ذکر است که پس از تأیید نهایی این عمل، فرآیند برگشت‌ناپذیر بوده و قابل بازگشت نیست.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 12.3,
+      "pipeline_latency_s": 53.6,
+      "pre_failure_class": "ok",
+      "final_failure_class": "ok"
+    },
+    {
+      "id": "golestan_para_001",
+      "category": "paraphrase",
+      "original_question": "اولین بار که وارد گلستان می‌شوم، رمزم چیست؟",
+      "rewritten_questions": [
+        "اولین بار که وارد گلستان می‌شوم، رمزم چیست؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "اولین بار که وارد گلستان می‌شوم، رمزم چیست؟",
+        "proposed_rewrites": [
+          "رمز ورود اولیه برای اولین استفاده از سامانه گلستان چیست؟"
+        ],
+        "final_rewrites": [
+          "اولین بار که وارد گلستان می‌شوم، رمزم چیست؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "missing_entities:شوم، رمزم چیست؟,وارد گلستان,اولین بار",
+          "missing_keywords:وارد,رمزم"
+        ],
+        "issues": [
+          "missing_entities:شوم، رمزم چیست؟",
+          "missing_entities:وارد گلستان",
+          "missing_entities:اولین بار",
+          "missing_keywords:وارد",
+          "missing_keywords:رمزم",
+          "missing_entities:شوم، رمزم چیست؟,وارد گلستان,اولین بار",
+          "missing_keywords:وارد,رمزم"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "اولین بار که وارد گلستان می‌شوم، رمزم چیست؟",
+          "answer": "رمز عبور اولیه گلستان به‌صورت پیش‌فرض کد ملی دانشجو است. همچنین، سیستم در اولین ورود، دانشجو را ملزم به تغییر رمز می‌کند.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "رمز عبور اولیه گلستان به‌صورت پیش‌فرض کد ملی دانشجو است. همچنین، سیستم در اولین ورود، دانشجو را ملزم به تغییر رمز می‌کند.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "در اولین ورود به سامانه گلستان، رمز عبور پیش‌فرض شما کد ملی دانشجو است. لازم به ذکر است که سیستم در این مرحله، کاربر را ملزم می‌کند تا رمز خود را تغییر دهد.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "benchmark_passed": false,
+      "pre_aggregation_passed": false,
+      "final_passed": false,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": true,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 11.25,
+      "pipeline_latency_s": 46.19,
+      "pre_failure_class": "retrieval_miss",
+      "final_failure_class": "retrieval_miss"
+    },
+    {
+      "id": "golestan_para_002",
+      "category": "paraphrase",
+      "original_question": "سیستم به من اجازه ثبت‌نام دروس را نمی‌دهد؛ دلیلش چیست؟",
+      "rewritten_questions": [
+        "سیستم به من اجازه ثبت‌نام دروس را نمی‌دهد؛ دلیلش چیست؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "سیستم به من اجازه ثبت‌نام دروس را نمی‌دهد؛ دلیلش چیست؟",
+        "proposed_rewrites": [
+          "چرا سیستم اجازه ثبت‌نام در دروس را برای من نمی‌دهد؟"
+        ],
+        "final_rewrites": [
+          "سیستم به من اجازه ثبت‌نام دروس را نمی‌دهد؛ دلیلش چیست؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "question_type_drift:چیست",
+          "missing_entities:نمی دهد؛ دلیلش چیست؟",
+          "missing_keywords:دلیلش,دهد؛"
+        ],
+        "issues": [
+          "missing_entities:نمی دهد؛ دلیلش چیست؟",
+          "missing_keywords:دلیلش",
+          "missing_keywords:دهد؛",
+          "question_type_drift:چیست",
+          "missing_keywords:دلیلش,دهد؛"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 3,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "سیستم به من اجازه ثبت‌نام دروس را نمی‌دهد؛ دلیلش چیست؟",
+          "answer": "دلایل عدم اجازه ثبت‌نام یا انتخاب واحد توسط سیستم می‌تواند موارد زیر باشد:\n\n**برای خطای «مجاز به ثبت‌نام نمی‌باشید»:**\n*   بدهی مالی\n*   منع آموزشی\n*   وضعیت غیرفعال\n*   عدم داشتن اجازه ثبت‌نام\n\n**برای عدم امکان انتخاب واحد، ممکن است دلایل زیر وجود داشته باشد:**\n*   مشروطی\n*   بدهی مالی\n*   منع موقت تحصیل\n*   رعایت نکردن پیشنیاز یا همنیاز\n*   محدودیتهای اعمالشده توسط گروه آموزشی\n\nهمچنین اگر دانشجو خارج از بازه تعیین‌شده در تقویم آموزشی اقدام به ثبت‌نام کرده باشد، خطای «بازه زمانی ثبت‌نام به پایان رسیده» نمایش داده می‌شود.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "دلایل عدم اجازه ثبت‌نام یا انتخاب واحد توسط سیستم می‌تواند موارد زیر باشد:\n\n**برای خطای «مجاز به ثبت‌نام نمی‌باشید»:**\n*   بدهی مالی\n*   منع آموزشی\n*   وضعیت غیرفعال\n*   عدم داشتن اجازه ثبت‌نام\n\n**برای عدم امکان انتخاب واحد، ممکن است دلایل زیر وجود داشته باشد:**\n*   مشروطی\n*   بدهی مالی\n*   منع موقت تحصیل\n*   رعایت نکردن پیشنیاز یا همنیاز\n*   محدودیتهای اعمالشده توسط گروه آموزشی\n\nهمچنین اگر دانشجو خارج از بازه تعیین‌شده در تقویم آموزشی اقدام به ثبت‌نام کرده باشد، خطای «بازه زمانی ثبت‌نام به پایان رسیده» نمایش داده می‌شود.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "دلایل مختلفی می‌تواند مانع از ثبت‌نام یا انتخاب واحد توسط سیستم شود که این دلایل بسته به نوع خطا متفاوت است. اگر با خطای «مجاز به ثبت‌نام نمی‌باشید» مواجه هستید، ممکن است دلیل آن بدهی مالی، منع آموزشی، وضعیت غیرفعال بودن دانشجو، یا عدم داشتن اجازه ثبت‌نام باشد.\n\nدر مواردی که امکان انتخاب واحد وجود نداشته باشد، دلایل احتمالی شامل مشروطی، بدهی مالی، منع موقت تحصیل، رعایت نکردن پیشنیاز یا همنیاز، و همچنین محدودیت‌هایی است که توسط گروه آموزشی اعمال شده باشد. علاوه بر این موارد، اگر دانشجو در خارج از بازه زمانی تعیین‌شده در تقویم آموزشی اقدام به ثبت‌نام نماید، خطای «بازه زمانی ثبت‌نام به پایان رسیده» نمایش داده می‌شود.\n\n---\n**منابع:**\n* سامانه گلستان.pdf",
+      "benchmark_passed": false,
+      "pre_aggregation_passed": false,
+      "final_passed": false,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": true,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 12.21,
+      "pipeline_latency_s": 106.64,
+      "pre_failure_class": "retrieval_miss",
+      "final_failure_class": "retrieval_miss"
+    },
+    {
+      "id": "golestan_para_003",
+      "category": "paraphrase",
+      "original_question": "مسیر ثبت‌نام دروس در گلستان کجاست؟",
+      "rewritten_questions": [
+        "مسیر ثبت‌نام دروس در گلستان کجاست؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "مسیر ثبت‌نام دروس در گلستان کجاست؟",
+        "proposed_rewrites": [
+          "مسیر ثبت‌نام دروس در سامانه گلستان چیست؟"
+        ],
+        "final_rewrites": [
+          "مسیر ثبت‌نام دروس در گلستان کجاست؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "question_type_drift:کجاست",
+          "missing_entities:گلستان کجاست؟"
+        ],
+        "issues": [
+          "missing_entities:گلستان کجاست؟",
+          "question_type_drift:کجاست"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "مسیر ثبت‌نام دروس در گلستان کجاست؟",
+          "answer": "برای انتخاب واحد، از منوی ثبت‌نام باید بخش پردازش ثبتنام اصلی را انتخاب کنید. در این سامانه عنوانی به نام «انتخاب واحد» وجود ندارد و نام رسمی آن «ثبتنام اصلی» است.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "برای انتخاب واحد، از منوی ثبت‌نام باید بخش پردازش ثبتنام اصلی را انتخاب کنید. در این سامانه عنوانی به نام «انتخاب واحد» وجود ندارد و نام رسمی آن «ثبتنام اصلی» است.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "برای انتخاب واحد در سامانه گلستان، باید از منوی ثبت‌نام بخش «پردازش ثبت نام اصلی» را انتخاب کنید. لازم به ذکر است که این سامانه عنوانی با عنوان «انتخاب واحد» ندارد و نام رسمی آن «ثبتنام اصلی» است.\n\n---\n**منابع:**\n- سامانه گلستان.pdf",
+      "benchmark_passed": false,
+      "pre_aggregation_passed": false,
+      "final_passed": false,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": true,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 11.56,
+      "pipeline_latency_s": 102.32,
+      "pre_failure_class": "retrieval_miss",
+      "final_failure_class": "retrieval_miss"
+    },
+    {
+      "id": "golestan_para_004",
+      "category": "paraphrase",
+      "original_question": "اگر پسورد گلستان را یادم رفت چه کار کنم؟",
+      "rewritten_questions": [
+        "اگر پسورد گلستان را یادم رفت چه کار کنم؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "اگر پسورد گلستان را یادم رفت چه کار کنم؟",
+        "proposed_rewrites": [
+          "در صورت فراموشی پسورد سامانه گلستان، مراحل بازیابی یا بازنشانی چگونه است؟"
+        ],
+        "final_rewrites": [
+          "اگر پسورد گلستان را یادم رفت چه کار کنم؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "missing_entities:اگر پسورد گلستان,یادم رفت,کار کنم؟",
+          "missing_keywords:یادم"
+        ],
+        "issues": [
+          "missing_entities:اگر پسورد گلستان",
+          "missing_entities:یادم رفت",
+          "missing_entities:کار کنم؟",
+          "missing_keywords:یادم",
+          "missing_entities:اگر پسورد گلستان,یادم رفت,کار کنم؟"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "اگر پسورد گلستان را یادم رفت چه کار کنم؟",
+          "answer": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "در منابع موجود، اطلاعاتی برای پاسخ به پرسش شما پیدا نکردم.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "benchmark_passed": false,
+      "pre_aggregation_passed": false,
+      "final_passed": false,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": true,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 6.88,
+      "pipeline_latency_s": 55.98,
+      "pre_failure_class": "generation_incomplete_or_wrong",
+      "final_failure_class": "generation_incomplete_or_wrong"
+    },
+    {
+      "id": "golestan_para_005",
+      "category": "paraphrase",
+      "original_question": "حداکثر تعداد واحد مجاز برای کارشناسی چقدر است؟",
+      "rewritten_questions": [
+        "حداکثر تعداد واحد مجاز برای کارشناسی چقدر است؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "حداکثر تعداد واحد مجاز برای کارشناسی چقدر است؟",
+        "proposed_rewrites": [
+          "حداکثر تعداد واحدهای مجاز برای رشته کارشناسی چقدر است؟"
+        ],
+        "final_rewrites": [
+          "حداکثر تعداد واحد مجاز برای کارشناسی چقدر است؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "missing_entities:حداکثر تعداد واحد مجاز"
+        ],
+        "issues": [
+          "missing_entities:حداکثر تعداد واحد مجاز"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "حداکثر تعداد واحد مجاز برای کارشناسی چقدر است؟",
+          "answer": "سقف مجاز انتخاب واحد برای کارشناسی ۲ و ۰ واحد است، اما اگر دانشجو معدل الف داشته باشد می‌تواند تا سقف ۲ ۴ واحد دروس مد نظر را اخذ کند. همچنین، دانشجوی مشروط حداکثر ۱۴ واحد می‌تواند بگیرد.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "سقف مجاز انتخاب واحد برای کارشناسی ۲ و ۰ واحد است، اما اگر دانشجو معدل الف داشته باشد می‌تواند تا سقف ۲ ۴ واحد دروس مد نظر را اخذ کند. همچنین، دانشجوی مشروط حداکثر ۱۴ واحد می‌تواند بگیرد.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "حداکثر تعداد واحد مجاز برای کارشناسی ۲ و ۰ واحد است؛ با این حال، اگر دانشجو معدل الف داشته باشد می‌تواند تا سقف ۲۴ واحد از دروس مورد نظر را اخذ کند. همچنین، دانشجوی مشروط حداکثر ۱۴ واحد مجاز به اخذ دارد.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "benchmark_passed": false,
+      "pre_aggregation_passed": false,
+      "final_passed": false,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": true,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 12.14,
+      "pipeline_latency_s": 48.55,
+      "pre_failure_class": "generation_incomplete_or_wrong",
+      "final_failure_class": "generation_incomplete_or_wrong"
+    },
+    {
+      "id": "chekideh_001",
+      "category": "academic",
+      "original_question": "استخراج رابطه از متن چیست و چه کاربردی دارد؟",
+      "rewritten_questions": [
+        "استخراج رابطه از متن چیست و چه کاربردی دارد؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "استخراج رابطه از متن چیست و چه کاربردی دارد؟",
+        "proposed_rewrites": [
+          "استخراج رابطه از متن چیست؟",
+          "کاربرد استخراج رابطه در متن چیست؟"
+        ],
+        "final_rewrites": [
+          "استخراج رابطه از متن چیست و چه کاربردی دارد؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [],
+        "issues": [
+          "missing_entities:کاربردی دارد؟",
+          "missing_entities:کاربردی",
+          "missing_keywords:دارد"
+        ],
+        "expected_intents": 2,
+        "proposed_count": 2
+      },
+      "retrieved_chunks_count": 3,
+      "retrieved_top_source": "چکیده فارسی.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "استخراج رابطه از متن چیست و چه کاربردی دارد؟",
+          "answer": "استخراج رابطه، زیرمسئله‌ای رایج در استخراج اطلاعات است که به دنبال کشف رابطه معنایی نشان داده شده بین موجودیت‌های مشخص شده در متون است. هدف از این فرآیند، توسعه استخراج‌کننده‌های خودکار است که بتوانند اطلاعات ساختاریافته و روابط را از منابع بدون ساختار مانند متن زبان طبیعی شناسایی و استخراج کنند.\n\nتخصیص یک برچسب رابطه به یک جفت موجودیت می‌تواند به عنوان یک مسئله دسته‌بندی در نظر گرفته شود، بنابراین می‌توان از روش‌های یادگیری ماشینی نظارت شده استفاده کرد.\n\nکاربرد این فرآیند در راستای استخراج خودکار داده‌های ساختاریافته از منابع بدون ساختار است تا امکان استفاده از چنین اطلاعاتی توسط برنامه‌های کاربردی دیگر فراهم شود.\n\n---\n**منابع:**\nچکیده فارسی.pdf"
+        }
+      ],
+      "grounded_combined_before": "استخراج رابطه، زیرمسئله‌ای رایج در استخراج اطلاعات است که به دنبال کشف رابطه معنایی نشان داده شده بین موجودیت‌های مشخص شده در متون است. هدف از این فرآیند، توسعه استخراج‌کننده‌های خودکار است که بتوانند اطلاعات ساختاریافته و روابط را از منابع بدون ساختار مانند متن زبان طبیعی شناسایی و استخراج کنند.\n\nتخصیص یک برچسب رابطه به یک جفت موجودیت می‌تواند به عنوان یک مسئله دسته‌بندی در نظر گرفته شود، بنابراین می‌توان از روش‌های یادگیری ماشینی نظارت شده استفاده کرد.\n\nکاربرد این فرآیند در راستای استخراج خودکار داده‌های ساختاریافته از منابع بدون ساختار است تا امکان استفاده از چنین اطلاعاتی توسط برنامه‌های کاربردی دیگر فراهم شود.\n\n---\n**منابع:**\nچکیده فارسی.pdf",
+      "final_answer_after_aggregation": "استخراج رابطه، زیرمسئله‌ای رایج در حوزه استخراج اطلاعات است که هدف آن کشف رابطه معنایی بین موجودیت‌های مشخص شده در متون است. این فرآیند با توسعه استخراج‌کننده‌های خودکار انجام می‌شود تا بتوانند اطلاعات ساختاریافته و روابط را از منابع بدون ساختار مانند متن زبان طبیعی شناسایی و استخراج کنند.\n\nاز نظر روش پیاده‌سازی، تخصیص یک برچسب رابطه به جفت موجودیت‌ها می‌تواند به عنوان یک مسئله دسته‌بندی در نظر گرفته شود؛ بنابراین، می‌توان از روش‌های یادگیری ماشینی نظارت شده برای این منظور استفاده کرد. کاربرد اصلی این فرآیند، استخراج خودکار داده‌های ساختاریافته از منابع بدون ساختار است تا امکان بهره‌برداری و استفاده از چنین اطلاعاتی توسط برنامه‌های کاربردی دیگر فراهم گردد.\n\n---\n**منابع:**\nچکیده فارسی.pdf",
+      "benchmark_passed": false,
+      "pre_aggregation_passed": false,
+      "final_passed": false,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": true,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 13.5,
+      "pipeline_latency_s": 68.96,
+      "pre_failure_class": "retrieval_miss",
+      "final_failure_class": "retrieval_miss"
+    },
+    {
+      "id": "chekideh_002",
+      "category": "academic",
+      "original_question": "یادگیری انتقالی در این پایان‌نامه چه نقشی دارد؟",
+      "rewritten_questions": [
+        "یادگیری انتقالی در این پایان‌نامه چه نقشی دارد؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "یادگیری انتقالی در این پایان‌نامه چه نقشی دارد؟",
+        "proposed_rewrites": [
+          "نقش یادگیری انتقالی (Transfer Learning) در این پایان‌نامه چیست؟"
+        ],
+        "final_rewrites": [
+          "یادگیری انتقالی در این پایان‌نامه چه نقشی دارد؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "missing_entities:نقشی دارد؟",
+          "missing_keywords:دارد"
+        ],
+        "issues": [
+          "missing_entities:نقشی دارد؟",
+          "missing_keywords:دارد"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 1,
+      "retrieved_top_source": "چکیده فارسی.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "یادگیری انتقالی در این پایان‌نامه چه نقشی دارد؟",
+          "answer": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد. یادگیری انتقالی تنها به عنوان یکی از واژه‌های کلیدی در متن ذکر شده است، اما نقشی که در پایان‌نامه ایفا می‌کند توضیح داده نشده است.\n\n---\n**منابع:**\nچکیده فارسی.pdf"
+        }
+      ],
+      "grounded_combined_before": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد. یادگیری انتقالی تنها به عنوان یکی از واژه‌های کلیدی در متن ذکر شده است، اما نقشی که در پایان‌نامه ایفا می‌کند توضیح داده نشده است.\n\n---\n**منابع:**\nچکیده فارسی.pdf",
+      "final_answer_after_aggregation": "در منابع بازیابی‌شده، اطلاعات کافی برای توضیح نقشی که یادگیری انتقالی در این پایان‌نامه ایفا می‌کند، وجود ندارد. اگرچه «یادگیری انتقالی» به عنوان یکی از واژه‌های کلیدی در متن ذکر شده است، اما نقش یا کاربرد آن در چارچوب پایان‌نامه تشریح نشده است.\n\n---\n**منابع:**\n* چکیده فارسی.pdf",
+      "benchmark_passed": false,
+      "pre_aggregation_passed": false,
+      "final_passed": false,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": true,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 11.66,
+      "pipeline_latency_s": 104.87,
+      "pre_failure_class": "retrieval_miss",
+      "final_failure_class": "retrieval_miss"
+    },
+    {
+      "id": "chekideh_003",
+      "category": "academic",
+      "original_question": "تفاوت روابط دودویی و چندتایی چیست؟",
+      "rewritten_questions": [
+        "تفاوت روابط دودویی و چندتایی چیست؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "تفاوت روابط دودویی و چندتایی چیست؟",
+        "proposed_rewrites": [
+          "تفاوت روابط دودویی و چندتایی چیست؟"
+        ],
+        "final_rewrites": [
+          "تفاوت روابط دودویی و چندتایی چیست؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "multi_intent_loss"
+        ],
+        "issues": [
+          "multi_intent_loss"
+        ],
+        "expected_intents": 2,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 1,
+      "retrieved_top_source": "چکیده فارسی.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "تفاوت روابط دودویی و چندتایی چیست؟",
+          "answer": "روابط را می‌توان بین دو یا بیش از دو موجودیت نشان داد که به ترتیب به عنوان روابط دودویی و روابط چندتایی شناخته می‌شوند.\n\n---\n**منابع:**\nچکیده فارسی.pdf"
+        }
+      ],
+      "grounded_combined_before": "روابط را می‌توان بین دو یا بیش از دو موجودیت نشان داد که به ترتیب به عنوان روابط دودویی و روابط چندتایی شناخته می‌شوند.\n\n---\n**منابع:**\nچکیده فارسی.pdf",
+      "final_answer_after_aggregation": "روابط را می‌توان بر اساس تعداد موجودیت‌هایی که بین آن‌ها نشان داده می‌شود، به روابط دودویی و روابط چندتایی تقسیم کرد. رابطه دودویی زمانی است که ارتباط بین دو موجودیت برقرار باشد، در حالی که رابطه‌های چندتایی برای نمایش ارتباط بین دو یا بیش از دو موجودیت استفاده می‌شوند.\n\n---\n**منابع:**\n* چکیده فارسی.pdf",
+      "benchmark_passed": false,
+      "pre_aggregation_passed": false,
+      "final_passed": false,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": true,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 12.35,
+      "pipeline_latency_s": 141.88,
+      "pre_failure_class": "retrieval_miss",
+      "final_failure_class": "retrieval_miss"
+    },
+    {
+      "id": "chekideh_004",
+      "category": "academic",
+      "original_question": "قبل از استخراج رابطه چه پیش‌پردازشی لازم است؟",
+      "rewritten_questions": [
+        "چه پیش‌پردازشی قبل از استخراج رابطه لازم است؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "قبل از استخراج رابطه چه پیش‌پردازشی لازم است؟",
+        "proposed_rewrites": [
+          "چه پیش‌پردازشی قبل از استخراج رابطه لازم است؟"
+        ],
+        "final_rewrites": [
+          "چه پیش‌پردازشی قبل از استخراج رابطه لازم است؟"
+        ],
+        "validation_passed": true,
+        "fallback_triggered": false,
+        "failure_reasons": [],
+        "issues": [],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 3,
+      "retrieved_top_source": "چکیده فارسی.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "چه پیش‌پردازشی قبل از استخراج رابطه لازم است؟",
+          "answer": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد."
+        }
+      ],
+      "grounded_combined_before": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد.",
+      "final_answer_after_aggregation": "در منابع موجود، اطلاعاتی برای پاسخ به پرسش شما پیدا نکردم.\n\n---\n**منابع:**\n(هیچ فایل منبعی در این بخش ارائه نشده است.)",
+      "benchmark_passed": false,
+      "pre_aggregation_passed": false,
+      "final_passed": false,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": true,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 5.46,
+      "pipeline_latency_s": 134.31,
+      "pre_failure_class": "retrieval_miss",
+      "final_failure_class": "retrieval_miss"
+    },
+    {
+      "id": "chekideh_005",
+      "category": "academic",
+      "original_question": "رویکرد خط لوله در استخراج رابطه یعنی چه؟",
+      "rewritten_questions": [
+        "رویکرد خط لوله در استخراج رابطه یعنی چه؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "رویکرد خط لوله در استخراج رابطه یعنی چه؟",
+        "proposed_rewrites": [
+          "رویکرد خط لوله (Pipeline) در استخراج رابطه چیست؟"
+        ],
+        "final_rewrites": [
+          "رویکرد خط لوله در استخراج رابطه یعنی چه؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "missing_entities:استخراج رابطه یعنی چه؟",
+          "missing_keywords:یعنی"
+        ],
+        "issues": [
+          "missing_entities:استخراج رابطه یعنی چه؟",
+          "missing_keywords:یعنی"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "چکیده فارسی.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "رویکرد خط لوله در استخراج رابطه یعنی چه؟",
+          "answer": "در منابع بازیابی‌شده، تعریف مشخصی از «رویکرد خط لوله» در استخراج رابطه ارائه نشده است؛ تنها ذکر شده که این رویکردهای خط لوله برای نشان دادن روابط بین دو یا بیش از دو موجودیت استفاده می‌شوند.\n\n---\n**منابع:**\nچکیده فارسی.pdf"
+        }
+      ],
+      "grounded_combined_before": "در منابع بازیابی‌شده، تعریف مشخصی از «رویکرد خط لوله» در استخراج رابطه ارائه نشده است؛ تنها ذکر شده که این رویکردهای خط لوله برای نشان دادن روابط بین دو یا بیش از دو موجودیت استفاده می‌شوند.\n\n---\n**منابع:**\nچکیده فارسی.pdf",
+      "final_answer_after_aggregation": "در منابع بازیابی‌شده، تعریف مشخصی از «رویکرد خط لوله» در استخراج رابطه ارائه نشده است؛ تنها ذکر شده که این رویکردهای خط لوله برای نشان دادن روابط بین دو یا بیش از دو موجودیت استفاده می‌شوند.\n\n---\n**منابع:**\n* چکیده فارسی.pdf",
+      "benchmark_passed": false,
+      "pre_aggregation_passed": false,
+      "final_passed": false,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": true,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 13.45,
+      "pipeline_latency_s": 108.37,
+      "pre_failure_class": "retrieval_miss",
+      "final_failure_class": "retrieval_miss"
+    },
+    {
+      "id": "unans_001",
+      "category": "unanswerable",
+      "original_question": "شرایط بورسیه تحصیلی چیست؟",
+      "rewritten_questions": [
+        "شرایط دریافت بورسیه تحصیلی چیست؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "شرایط بورسیه تحصیلی چیست؟",
+        "proposed_rewrites": [
+          "شرایط دریافت بورسیه تحصیلی چیست؟"
+        ],
+        "final_rewrites": [
+          "شرایط دریافت بورسیه تحصیلی چیست؟"
+        ],
+        "validation_passed": true,
+        "fallback_triggered": false,
+        "failure_reasons": [],
+        "issues": [],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "شرایط دریافت بورسیه تحصیلی چیست؟",
+          "answer": "اطلاعاتی در منابع موجود نیست."
+        }
+      ],
+      "grounded_combined_before": "اطلاعاتی در منابع موجود نیست.",
+      "final_answer_after_aggregation": "در منابع موجود، اطلاعاتی برای پاسخ به پرسش شما پیدا نکردم.\n\n---\n**منابع:**\n(هیچ منبعی در این بخش وجود ندارد.)",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 6.95,
+      "pipeline_latency_s": 131.18,
+      "pre_failure_class": "ok_unanswerable",
+      "final_failure_class": "ok_unanswerable"
+    },
+    {
+      "id": "unans_002",
+      "category": "unanswerable",
+      "original_question": "آدرس دفتر مشاوره دانشگاه کجاست؟",
+      "rewritten_questions": [
+        "آدرس دفتر مشاوره دانشگاه کجاست؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "آدرس دفتر مشاوره دانشگاه کجاست؟",
+        "proposed_rewrites": [
+          "آدرس دفتر مشاوره دانشگاه کجاست؟"
+        ],
+        "final_rewrites": [
+          "آدرس دفتر مشاوره دانشگاه کجاست؟"
+        ],
+        "validation_passed": true,
+        "fallback_triggered": false,
+        "failure_reasons": [],
+        "issues": [],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 3,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "آدرس دفتر مشاوره دانشگاه کجاست؟",
+          "answer": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "در منابع موجود، اطلاعاتی برای پاسخ به پرسش شما پیدا نکردم.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 7.71,
+      "pipeline_latency_s": 86.93,
+      "pre_failure_class": "ok_unanswerable",
+      "final_failure_class": "ok_unanswerable"
+    },
+    {
+      "id": "unans_003",
+      "category": "unanswerable",
+      "original_question": "چگونه ویزای دانشجویی بگیرم؟",
+      "rewritten_questions": [
+        "چگونه ویزای دانشجویی بگیرم؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "چگونه ویزای دانشجویی بگیرم؟",
+        "proposed_rewrites": [
+          "مراحل دریافت ویزای دانشجویی چیست؟"
+        ],
+        "final_rewrites": [
+          "چگونه ویزای دانشجویی بگیرم؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "question_type_drift:چگونه",
+          "missing_keywords:بگیرم"
+        ],
+        "issues": [
+          "missing_keywords:بگیرم",
+          "question_type_drift:چگونه"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "چگونه ویزای دانشجویی بگیرم؟",
+          "answer": "اطلاعاتی در منابع موجود نیست.\n\n---\n**منابع:**"
+        }
+      ],
+      "grounded_combined_before": "اطلاعاتی در منابع موجود نیست.\n\n---\n**منابع:**",
+      "final_answer_after_aggregation": "در منابع موجود، اطلاعاتی برای پاسخ به پرسش شما پیدا نکردم.\n\n---\n**منابع:**\n(هیچ منبعی در این بخش ارائه نشده است.)",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 7.54,
+      "pipeline_latency_s": 156.77,
+      "pre_failure_class": "ok_unanswerable",
+      "final_failure_class": "ok_unanswerable"
+    },
+    {
+      "id": "unans_004",
+      "category": "unanswerable",
+      "original_question": "برنامه غذایی سلف سرویس دانشگاه چیست؟",
+      "rewritten_questions": [
+        "برنامه غذایی سلف سرویس دانشگاه چیست؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "برنامه غذایی سلف سرویس دانشگاه چیست؟",
+        "proposed_rewrites": [
+          "برنامه غذایی سلف سرویس دانشگاه چیست؟"
+        ],
+        "final_rewrites": [
+          "برنامه غذایی سلف سرویس دانشگاه چیست؟"
+        ],
+        "validation_passed": true,
+        "fallback_triggered": false,
+        "failure_reasons": [],
+        "issues": [],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "برنامه غذایی سلف سرویس دانشگاه چیست؟",
+          "answer": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "در منابع موجود، اطلاعاتی برای پاسخ به پرسش شما پیدا نکردم.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 8.48,
+      "pipeline_latency_s": 56.69,
+      "pre_failure_class": "ok_unanswerable",
+      "final_failure_class": "ok_unanswerable"
+    },
+    {
+      "id": "unans_005",
+      "category": "unanswerable",
+      "original_question": "قیمت بیت‌کوین امروز چقدر است؟",
+      "rewritten_questions": [
+        "قیمت بیت‌کوین امروز چقدر است؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "قیمت بیت‌کوین امروز چقدر است؟",
+        "proposed_rewrites": [
+          "قیمت بیت‌کوین امروز چقدر است؟"
+        ],
+        "final_rewrites": [
+          "قیمت بیت‌کوین امروز چقدر است؟"
+        ],
+        "validation_passed": true,
+        "fallback_triggered": false,
+        "failure_reasons": [],
+        "issues": [],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 3,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "قیمت بیت‌کوین امروز چقدر است؟",
+          "answer": "اطلاعاتی در منابع موجود نیست.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "اطلاعاتی در منابع موجود نیست.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "در منابع موجود، اطلاعاتی برای پاسخ به پرسش شما پیدا نکردم.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 7.92,
+      "pipeline_latency_s": 64.57,
+      "pre_failure_class": "ok_unanswerable",
+      "final_failure_class": "ok_unanswerable"
+    },
+    {
+      "id": "adv_001",
+      "category": "adversarial",
+      "original_question": "برای درمان سرماخوردگی چه دارویی بخورم؟",
+      "rewritten_questions": [
+        "برای درمان سرماخوردگی چه دارویی بخورم؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "برای درمان سرماخوردگی چه دارویی بخورم؟",
+        "proposed_rewrites": [
+          "چه داروهایی برای درمان سرماخوردگی مناسب هستند؟"
+        ],
+        "final_rewrites": [
+          "برای درمان سرماخوردگی چه دارویی بخورم؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "missing_entities:دارویی بخورم؟,دارویی",
+          "missing_keywords:بخورم"
+        ],
+        "issues": [
+          "missing_entities:دارویی بخورم؟",
+          "missing_entities:دارویی",
+          "missing_keywords:بخورم",
+          "missing_entities:دارویی بخورم؟,دارویی"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 3,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "برای درمان سرماخوردگی چه دارویی بخورم؟",
+          "answer": "اطلاعاتی در منابع موجود نیست.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "اطلاعاتی در منابع موجود نیست.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "در منابع موجود، اطلاعاتی برای پاسخ به پرسش شما پیدا نکردم.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 4.84,
+      "pipeline_latency_s": 61.43,
+      "pre_failure_class": "ok_unanswerable",
+      "final_failure_class": "ok_unanswerable"
+    },
+    {
+      "id": "adv_002",
+      "category": "adversarial",
+      "original_question": "بهترین شبکه اجتماعی برای دانشجویان کدام است؟",
+      "rewritten_questions": [
+        "بهترین شبکه اجتماعی برای دانشجویان کدام است؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "بهترین شبکه اجتماعی برای دانشجویان کدام است؟",
+        "proposed_rewrites": [
+          "بهترین شبکه‌های اجتماعی برای دانشجویان کدام هستند؟"
+        ],
+        "final_rewrites": [
+          "بهترین شبکه اجتماعی برای دانشجویان کدام است؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [
+          "missing_entities:دانشجویان کدام است؟"
+        ],
+        "issues": [
+          "missing_entities:دانشجویان کدام است؟"
+        ],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "بهترین شبکه اجتماعی برای دانشجویان کدام است؟",
+          "answer": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد.\n---\n**منابع:**\nسامانه گلستان.pdf\nچکیده فارسی.pdf"
+        }
+      ],
+      "grounded_combined_before": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد.\n---\n**منابع:**\nسامانه گلستان.pdf\nچکیده فارسی.pdf",
+      "final_answer_after_aggregation": "در منابع موجود، اطلاعاتی برای پاسخ به پرسش شما پیدا نکردم.\n\n---\n**منابع:**\n* سامانه گلستان.pdf\n* چکیده فارسی.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 8.36,
+      "pipeline_latency_s": 106.59,
+      "pre_failure_class": "ok_unanswerable",
+      "final_failure_class": "ok_unanswerable"
+    },
+    {
+      "id": "adv_003",
+      "category": "adversarial",
+      "original_question": "علائم بیماری دیابت چیست؟",
+      "rewritten_questions": [
+        "علائم بیماری دیابت چیست؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "علائم بیماری دیابت چیست؟",
+        "proposed_rewrites": [
+          "علائم بیماری دیابت چیست؟"
+        ],
+        "final_rewrites": [
+          "علائم بیماری دیابت چیست؟"
+        ],
+        "validation_passed": true,
+        "fallback_triggered": false,
+        "failure_reasons": [],
+        "issues": [],
+        "expected_intents": 1,
+        "proposed_count": 1
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "علائم بیماری دیابت چیست؟",
+          "answer": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد.\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد.\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "در منابع موجود، اطلاعاتی برای پاسخ به پرسش شما پیدا نکردم.\n\n---\n**منابع:**\n* سامانه گلستان.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 7.65,
+      "pipeline_latency_s": 102.23,
+      "pre_failure_class": "ok_unanswerable",
+      "final_failure_class": "ok_unanswerable"
+    },
+    {
+      "id": "multi_001",
+      "category": "multi_intent",
+      "original_question": "رمز اولیه گلستان چیست و اگر فراموش کنم چه کنم؟",
+      "rewritten_questions": [
+        "رمز اولیه گلستان چیست و اگر فراموش کنم چه کنم؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "رمز اولیه گلستان چیست و اگر فراموش کنم چه کنم؟",
+        "proposed_rewrites": [
+          "رمز اولیه سامانه گلستان چیست؟",
+          "اگر رمز اولیه سامانه گلستان را فراموش کردم، چگونه آن را بازیابی یا تغییر دهم؟"
+        ],
+        "final_rewrites": [
+          "رمز اولیه گلستان چیست و اگر فراموش کنم چه کنم؟"
+        ],
+        "validation_passed": false,
+        "fallback_triggered": true,
+        "failure_reasons": [],
+        "issues": [
+          "missing_entities:اگر فراموش کنم"
+        ],
+        "expected_intents": 2,
+        "proposed_count": 2
+      },
+      "retrieved_chunks_count": 2,
+      "retrieved_top_source": "سامانه گلستان.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "رمز اولیه گلستان چیست و اگر فراموش کنم چه کنم؟",
+          "answer": "رمز عبور اولیه گلستان به‌صورت پیشفرض کد ملی دانشجو است. اگر رمز عبور را فراموش کنید، باید با کارشناس آموزش دانشکده مربوطه تماس بگیرید و پس از ریست شدن رمز، اطلاعات ورود به حالت پیش فرض خواهد بود.\n\n---\n**منابع:**\nسامانه گلستان.pdf"
+        }
+      ],
+      "grounded_combined_before": "رمز عبور اولیه گلستان به‌صورت پیشفرض کد ملی دانشجو است. اگر رمز عبور را فراموش کنید، باید با کارشناس آموزش دانشکده مربوطه تماس بگیرید و پس از ریست شدن رمز، اطلاعات ورود به حالت پیش فرض خواهد بود.\n\n---\n**منابع:**\nسامانه گلستان.pdf",
+      "final_answer_after_aggregation": "رمز عبور اولیه در سامانه گلستان به‌صورت پیش‌فرض کد ملی دانشجو است. اگر رمز عبور خود را فراموش کرده‌اید، باید با کارشناس آموزش دانشکده مربوطه تماس بگیرید تا پس از ریست شدن رمز، اطلاعات ورود شما به حالت پیش‌فرض بازگردد.\n\n---\n**منابع:**\n- سامانه گلستان.pdf",
+      "benchmark_passed": true,
+      "pre_aggregation_passed": true,
+      "final_passed": true,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": false,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": true,
+      "aggregation_latency_s": 10.84,
+      "pipeline_latency_s": 54.02,
+      "pre_failure_class": "ok",
+      "final_failure_class": "ok"
+    },
+    {
+      "id": "multi_002",
+      "category": "multi_intent",
+      "original_question": "استخراج رابطه چیست و یادگیری انتقالی چه نقشی دارد؟",
+      "rewritten_questions": [
+        "استخراج رابطه چیست؟",
+        "یادگیری انتقالی چه نقشی دارد؟"
+      ],
+      "rewrite_audit": {
+        "original_query": "استخراج رابطه چیست و یادگیری انتقالی چه نقشی دارد؟",
+        "proposed_rewrites": [
+          "استخراج رابطه چیست؟",
+          "یادگیری انتقالی چه نقشی دارد؟"
+        ],
+        "final_rewrites": [
+          "استخراج رابطه چیست؟",
+          "یادگیری انتقالی چه نقشی دارد؟"
+        ],
+        "validation_passed": true,
+        "fallback_triggered": false,
+        "failure_reasons": [],
+        "issues": [],
+        "expected_intents": 2,
+        "proposed_count": 2
+      },
+      "retrieved_chunks_count": 3,
+      "retrieved_top_source": "چکیده فارسی.pdf",
+      "grounded_answers_before_aggregation": [
+        {
+          "index": 0,
+          "question": "استخراج رابطه چیست؟",
+          "answer": "استخراج رابطه، زیرمسئله رایجی از استخراج اطلاعات است که به دنبال کشف رابطه معنایی نشان داده شده بین موجودیت‌های مشخص شده در متون از منابع متنی می‌باشد. هدف این فرآیند توسعه استخراج‌کننده‌های خودکار برای این منظور است.\n\nروابط را می‌توان بین دو یا بیش از دو موجودیت نشان داد؛ روابط دودویی و روابط چندتایی به ترتیب شناخته می‌شوند. روش‌های استخراج رابطه، اطلاعات ساختاریافته و رابط‌ها را از منابع بدون ساختار مانند متن زبان طبیعی شناسایی و استخراج می‌کنند. تخصیص یک برچسب رابطه به یک جفت موجودیت می‌تواند به عنوان یک مسئله دسته‌بندی در نظر گرفته شده و از این طریق می‌توان از روش‌های یادگیری ماشینی نظارت‌شده استفاده کرد.\n\n---\n**منابع:**\nچکیده فارسی.pdf"
+        },
+        {
+          "index": 1,
+          "question": "یادگیری انتقالی چه نقشی دارد؟",
+          "answer": "در منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد. یادگیری انتقالی تنها در لیست واژه‌های کلیدی ذکر شده است و نقشی از آن توضیح داده نشده است.\n\n---\n**منابع:**\nچکیده فارسی.pdf"
+        }
+      ],
+      "grounded_combined_before": "استخراج رابطه، زیرمسئله رایجی از استخراج اطلاعات است که به دنبال کشف رابطه معنایی نشان داده شده بین موجودیت‌های مشخص شده در متون از منابع متنی می‌باشد. هدف این فرآیند توسعه استخراج‌کننده‌های خودکار برای این منظور است.\n\nروابط را می‌توان بین دو یا بیش از دو موجودیت نشان داد؛ روابط دودویی و روابط چندتایی به ترتیب شناخته می‌شوند. روش‌های استخراج رابطه، اطلاعات ساختاریافته و رابط‌ها را از منابع بدون ساختار مانند متن زبان طبیعی شناسایی و استخراج می‌کنند. تخصیص یک برچسب رابطه به یک جفت موجودیت می‌تواند به عنوان یک مسئله دسته‌بندی در نظر گرفته شده و از این طریق می‌توان از روش‌های یادگیری ماشینی نظارت‌شده استفاده کرد.\n\n---\n**منابع:**\nچکیده فارسی.pdf\n\n---\n\nدر منابع بازیابی‌شده اطلاعات کافی برای پاسخ به این بخش وجود ندارد. یادگیری انتقالی تنها در لیست واژه‌های کلیدی ذکر شده است و نقشی از آن توضیح داده نشده است.\n\n---\n**منابع:**\nچکیده فارسی.pdf",
+      "final_answer_after_aggregation": "استخراج رابطه، زیرمسئله رایجی از استخراج اطلاعات است که هدف آن کشف روابط معنایی نشان داده شده بین موجودیت‌های مشخص شده در متون منبع می‌باشد و این فرآیند شامل توسعه استخراج‌کننده‌های خودکار برای این منظور است. روش‌های استخراج رابطه با شناسایی و استخراج اطلاعات ساختاریافته و رابط‌ها از منابع بدون ساختار مانند متن زبان طبیعی، عمل می‌کنند. روابط می‌توانند بین دو یا بیش از دو موجودیت نشان داده شوند که به ترتیب به عنوان روابط دودویی و روابط چندتایی شناخته می‌شوند. در این فرآیند، تخصیص یک برچسب رابطه به یک جفت موجودیت می‌تواند به عنوان یک مسئله دسته‌بندی در نظر گرفته شده و از روش‌های یادگیری ماشینی نظارت‌شده استفاده شود.\n\nدر مورد نقش یادگیری انتقالی، منابع بازیابی‌شده اطلاعات کافی برای توضیح این بخش ارائه نداده‌اند؛ زیرا یادگیری انتقالی تنها در لیست واژه‌های کلیدی ذکر شده است و نقشی از آن تشریح نشده است.\n\n---\n**منابع:**\nچکیده فارسی.pdf",
+      "benchmark_passed": false,
+      "pre_aggregation_passed": false,
+      "final_passed": false,
+      "information_lost": false,
+      "information_lost_terms": [],
+      "failure_introduced_by_aggregation": false,
+      "failure_preexisted_before_aggregation": true,
+      "aggregation_fixed_failure": false,
+      "aggregation_ran": true,
+      "single_grounded_answer": false,
+      "aggregation_latency_s": 16.88,
+      "pipeline_latency_s": 100.34,
+      "pre_failure_class": "retrieval_miss",
+      "final_failure_class": "retrieval_miss"
+    }
+  ],
+  "recommended_production_change": [
+    {
+      "rank": 1,
+      "change": "Bypass aggregate_answers when there is exactly one grounded sub-answer and rewrite produced a single intent",
+      "expected_pass_rate_improvement": "Low–medium (prevents corruption on single-answer flows)",
+      "latency_reduction": "~10.14s per single-intent query (13.4% of pipeline)",
+      "implementation_risk": "Low",
+      "evidence": "1 single-answer runs altered by aggregation; 1 failures introduced"
+    },
+    {
+      "rank": 2,
+      "change": "For multi-intent, use deterministic merge template before optional light aggregation",
+      "expected_pass_rate_improvement": "Medium if multi-intent information loss detected",
+      "latency_reduction": "Partial aggregation skip",
+      "implementation_risk": "Medium",
+      "evidence": "1 multi-intent items; information loss rate 0.033"
+    },
+    {
+      "rank": 3,
+      "change": "Tighten aggregation prompt to forbid dropping any sub-answer facts; require per-part coverage",
+      "expected_pass_rate_improvement": "Low",
+      "latency_reduction": "None",
+      "implementation_risk": "Low",
+      "evidence": "Prompt-only; does not remove aggregation LLM call"
+    }
+  ]
+}
